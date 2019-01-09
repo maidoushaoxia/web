@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>伪类选择器</title>
+  <style type="text/css">
+  /* 伪类选择器用来表示元素的一种特殊状态
+      正常链接:link
+      访问过的链接:visited
+      鼠标滑过的链接:hover
+      正在点击的链接:active
+      获取焦点:focus
+      指定元素前::before
+      指定元素后::after
+      选中的元素::selection
+   */
+    a:link {
+      color:green;
+    }
+    /* 由于设计隐私问题,只能设置访问过的链接的字体颜色 */
+    a:visited {
+      color: red;
+    }
+    a:hover {
+      color: blue;
+    }
+    a:active {
+      color: black;
+    }
+    input:focus{
+      background-color: yellow;
+    }
+    p::selection{
+      background-color: orange;
+    }
+  /* selection选定 */
+  </style>
+</head>
+<body>
+  <a href="https://www.baidu.com/">访问过的链接</a><br/><br/>
+  <!--浏览器是通过历史记录判断是否访问过的-->
+  <a href="www.baidu123.com">没访问过的链接</a>
+  <p>我是段落</p>
+  <input type="text">
+</body>
+</html>
