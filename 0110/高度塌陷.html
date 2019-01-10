@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>高度塌陷</title>
+  <style type="text/css">
+  
+    /* 解决高度塌陷问题:
+          在页面中元素都有一个隐含的属性Block Formatting Context
+          简称BFC,默认关闭的
+          开启父元素BFC以后,元素将会具有如下特性:
+            1.父元素的垂直外边距不会和子元素重叠;
+            2.开启BFC的元素不会被浮动元素覆盖;
+            3.开启BFC的元素可以包含浮动的子元素;
+
+          如何开启BFC:
+            1.设置元素浮动
+                使用这种方式虽然可以后才能开父元素,但也会导致父元素的宽度丢失
+                而且这种方式会导致下边的元素上移,不能解决问题
+            2.设置元素绝对定位
+                同1
+            3.设置元素为inline-block
+                可以解决问题,但是还是会导致父元素的宽度丢失
+            4.将元素的overflow设置为一个非visiable的值
+                推荐方式,将overflow设置为hidden
+                但是不能兼容IE6
+            5.通过after伪类向元素的最后添加一个空白的巨爱元素,然后对其清除浮动
+                推荐使用,无副作用,但IE6不支持after伪类
+     */
+
+      .box1{
+        border:10px red solid;
+        /* overflow:hidden; */
+      }
+
+      .clearfix::after{
+        content: "";
+        display: block;
+        clear:both;
+      }
+
+      .box2{
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        float:left;
+
+      }
+
+      .box3{
+        height: 100px;
+        background-color: yellow;
+      }
+
+  </style>
+</head>
+<body>
+
+  <div class="box1 clearfix">
+    <div class="box2"></div>
+  </div>
+  
+  <div class="box3"></div>
+</body>
+</html>

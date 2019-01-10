@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>盒模型</title>
+  <!--盒子模型包括:元素,内边距,外边距,边框-->
+  <style type="text/css">
+
+    .box1{
+      /* 设置盒子内容区的宽度和高度,不是盒子的整个大小 
+      盒子可见框的大小由元素,内边距,边框共同决定
+      */
+      width: 100px;
+      height: 100px;
+
+      /* 设置盒子的背景颜色 */
+      background-color: aquamarine;
+
+      /* 为元素设置边框,必须指定三个样式:
+            border-width:边框的宽度,可以分别指定四个边框的宽度:
+              指定四个值,依次为上右下左,
+              指定三个值,依次为上 左右 下
+              指定两个值,分别为上下,左右
+              指定一个值,四边都是该值
+              设置指定边的宽度:border-xxx-width,xxx分别为top,bottom,left,right
+            border-color:边框颜色,也是上右下左原则
+            border-style:边框样式,solid为实现,也可以上右下左,默认为none
+              
+       */
+
+      border-width: 10px; 
+      border-color: blue;
+      border-style: solid;
+
+      /* 内边距是盒子的内容区与盒子边框之间的距离
+          四个方向的内边距:padding-xxx,
+        内边距的大小会影响盒子可见框的大小,元素的背景会延伸到内边距
+        盒子可见框的宽度=
+        border-left-width + padding-left-width + padding-right-width + padding-right-width
+      */
+      
+      padding-top: 100px;
+      padding-right: 100px;
+      padding-left: 100px;
+      padding-bottom: 100px;
+
+      /* 
+      外边距是当前盒子与其他盒子的距离
+        不会影响可见框的大小,只会影响盒子的距离
+        四个方向的外边距:margin-xxx;
+      */
+
+      /* 设置box1的外边距,盒子上边框与其它盒子的距离 ,
+          页面的元素都是靠左靠上存放的,因此改变左上的外边距会改变盒子自身的位置,
+          而改变右下会改变其他盒子的位置;
+        如果设置负值,则元素往反方向移动;
+        水平方向还可以设置为auto,
+          如果指指定一个,则会将外边距设置为最大值,
+          如果都设置为auto,则将两侧外边距设置为相同值,也就是居中;
+        垂直方向如果设置为auto,则设置为0;
+        垂直方向的相邻外边距会发生重叠,是指兄弟元素的相邻外边距取最大值而不是取和;
+        如果父子元素的垂直外边距相邻,则子元素的外边距会设置给父元素
+      */
+      /* margin-top: auto;
+      margin-left: auto;
+      margin-right: 100px; */
+      margin-bottom: 100px;
+      
+    }
+
+    /* 创建一个盒子占满box1 */
+
+    .box2{
+      width:  100px;
+      height: 100px;
+      background-color: yellow;
+      margin-top:200px;
+    }
+  
+    .box3{
+      width:  200px;
+      height: 190px;
+      background-color:red;
+      border-top: 10px grey solid;
+    }
+
+    .box4{
+      width:  100px;
+      height: 100px;
+      background-color:green;
+      margin-top:100px;
+    }
+
+  </style>
+</head>
+<body>
+  
+    <div class="box3">
+        <div class="box4"></div>
+      </div>
+  <div class="box1"></div>
+  <div class="box2"></div>
+
+</body>
+</html>

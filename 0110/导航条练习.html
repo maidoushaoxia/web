@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>导航条</title>
+  <style>
+
+    /* 清除默认样式 */
+
+    *{
+      margin:0;
+      padding: 0;
+    }
+
+    .nav{
+      /* 去除项目符号 */
+      list-style: none;
+      background-color:#6495ED;
+      width: 1000px;
+      margin:50px auto;
+      overflow: hidden;
+     
+    }
+
+    .nav li{
+      float: left;
+     width: 12.5%;
+    }
+
+    .nav a{
+      /* 将内联元素转换为块元素 */
+      display: block;
+      width: 100%;
+      /* width: 250px; */
+      text-align: center;
+      padding: 5px 0;
+      /* 去除下划线 */
+      text-decoration: none;
+      color: white;
+    }
+
+    .nav a:hover {
+      background-color: #cc0000;
+    }
+  
+  
+  </style>
+</head>
+<body>
+  
+<!-- 导航条的结构 -->
+
+    <ul class="nav">
+      <li><a href="#">首页</a></li>
+      <li><a href="#">新闻</a></li>
+      <li><a href="#">联系</a></li>
+      <li><a href="#">关于</a></li>
+      <li><a href="#">首页</a></li>
+      <li><a href="#">新闻</a></li>
+      <li><a href="#">联系</a></li>
+      <li><a href="#">关于</a></li>
+    </ul>
+
+</body>
+</html>

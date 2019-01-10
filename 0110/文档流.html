@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+      文档流处在网页的最底层,他表示的是一个页面中的位置
+      创建的元素默认就在文档流中
+
+      元素在文档流中的特点
+
+      块元素
+        1.在文档中独占一行,即自上向下排列;
+        2.块元素在文档流中默认宽度是父元素的100%
+        3.块元素在文档流中默认高度默认被内容撑开
+
+      内联元素
+        1.只占自身大,小从左向下排列
+          若一行不足以容纳所以内联元素,则换到下一行,继续自左向右
+        2.内联元素的宽度和高度都默认被内容撑开
+
+  -->
+  <!-- 当元素的高度或宽度为auto时,此时指定内边距不会影响可见框大小,
+        而是会自动修改宽度和高度,以适应内边距
+  -->
+
+  <div style="background-color: red">
+    <div style="height: 50px;"></div>
+  </div>
+  <div style="width:100px; height: 100px; background-color: green"></div>
+
+  <span>我是一个span</span>
+  <span>我是一个span</span>
+  <span>我是一个span</span>
+
+</body>
+</html>

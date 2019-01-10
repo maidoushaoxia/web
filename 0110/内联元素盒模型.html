@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>内联元素盒模型</title>
+  <style type="text/css">
+
+    span{
+      background-color: blue;
+    }
+    
+    .box1{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+
+    .s1{
+      /* 内容区 */
+      width: 200px;
+      height: 200px;
+      /* 内联元素不能设置width和height */
+
+      /* 水平内边距 */
+      padding-left: 100px;
+      padding-right: 100px;
+      /* 内联元素可以设置水平方向内边距 */
+
+      /* 垂直内边距 */
+      padding-top: 50px;
+      padding-bottom: 50px;
+      /* 内联元素可以设置垂直方向内边距,但不会影响页面布局 */
+      
+      /* 设置边框 */
+      border:10px green solid;
+      /* 内联元素可以设置边框,但垂直边框不会影响布局 */
+
+      /* 水平外边距 */
+      margin-left: 100px;
+      margin-right: 100px;
+
+      /* 垂直外边距 */
+      margin-top: 200px;
+      margin-bottom: 200px;
+
+    }
+
+    .s2{
+      margin-left: 100px;
+      /* 水平方向外边距不会重叠,二十进行求和 */
+    }
+  </style>
+</head>
+<body>
+  <span class="s1">我是一个span</span>
+  <span class="s2">我是一个span</span>
+  <span>我是一个span</span>
+  <span>我是一个span</span>
+
+  <div class="box1"></div>
+</body>
+</html>
