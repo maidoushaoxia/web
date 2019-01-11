@@ -1,0 +1,99 @@
+/* 在这里编辑主页样式 */
+
+.copyright{ 
+  -webkit-text-size-adjust:none;
+}
+
+/* 设置body */
+
+body{
+  /* 设置水平方向重复 */
+  background: url(img/bd-bg.png) repeat-x;
+}
+
+/* 固定元素宽度和居中 */
+.w{
+  width: 940px;
+  margin: 0 auto;
+}
+
+/* 设置header */
+.header{
+  /* background-color:palegoldenrod; */
+  padding-top: 37px;
+  padding-bottom: 46px;
+}
+
+/* 设置logo */
+.logo{
+  margin-left: 15px;
+}
+
+/* 设置导航条 */
+.nav{
+  float: right;
+  padding-top: 22px;
+}
+
+.nav li{
+  float: left;
+  padding: 8px 10px;
+  border-left: 1px #d6d6d6 dotted;
+}
+
+/* 超链接 */
+.nav a{
+  font:14px Georgia bold;
+  color: #666;
+  text-decoration: none;
+}
+
+/* 超链接移入效果 */
+.nav a:hover{
+  color:#333232;
+}
+
+/* 导航栏中的小标题 */
+.nav p{
+  color: #b7b7b7;
+  font:11px Tahoma;
+  /* Chrome中最小字体为12px */
+}
+
+/* banner */
+.banner{
+  height: 356px;
+  background: url(img/banner-bg.png) no-repeat bottom center;
+  /* 开启相对定位 */
+  position: relative;
+
+}
+
+/* 导航按钮 */
+.pointerDiv{
+  /* 开启绝对定位,为导航按钮定位 */
+  position: absolute;
+  top:314px;
+  left: 15px;
+}
+
+.pointerDiv a{
+  /* display: inline-block; */
+  float: left;
+  width:17px;
+  height: 17px;
+  background:url(img/pointer.png) no-repeat;
+  margin-left: 4px;
+}
+
+/* 超链接的hover伪类 */
+.pointerDiv a:hover,
+.pointerDiv .active{
+  background: url(img/pointer-active.png) no-repeat;
+}
+
+/* content */
+.content h1{
+  font: 24px Georgia bold;
+  text-align: center;
+}
