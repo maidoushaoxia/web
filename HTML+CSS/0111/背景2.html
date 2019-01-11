@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+    <style type="text/css">
+
+    .box1{
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+        background-color:#bfa;
+        background-image: url(3.png);
+        background-repeat: no-repeat;
+
+        /* 通过水平方向和垂直方向各一个值来调整图片的位置 
+        left right top bottom center
+        但是只能设置九宫格
+        */
+        /* background-position: top center; */
+
+        /* 也可以直接指定两个偏移量
+        第一个值是水平方向,正值向右移,负值向左移
+        第二个值是垂直方向,正值向下移,负值向上移
+        */
+        background-position: 100px 200px;
+        /* background-attachment: fixed; */
+      }
+
+      body{
+        background-image: url(3.png);
+        background-repeat: no-repeat;
+
+        /* 设置背景图像是否随着页面滚动 
+          fixed:固定
+          scroll:滚动
+
+          不随窗口滚动的图片一般都设置给body
+        */
+        background-attachment: fixed;
+      }
+    </style>
+
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

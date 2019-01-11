@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>定位</title>
+  <style type="text/css">
+
+    .box1{
+      width:200px;
+      height: 200px;
+      background-color: red;
+      position: relative;
+      z-index: 10;
+      opacity: 0.5;
+    }
+
+    .box2{
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+
+      /* 
+        通过定位可以任意的摆放元素
+          position属性:
+            1.static:默认值,无定位
+
+            2.relative:相对定位,
+                若不设置偏移量,元素位置不产生变化;
+                xxx:元素相对于元素在文档流中原来的位置的偏移量;
+                相对定位的元素不会脱离文档流;
+                相对定位会使元素提升层级;
+                只需使用两个值就可以完成定位,一个水平方向,一个垂直方向;
+
+            3.absolute:绝对定位,
+                绝对定位会使元素脱离文档流;
+                若不设置偏移量,元素位置不产生变化;
+                绝对定位是相对于离他最近的开启定位的祖先元素进行定位,
+                一般开启子元素的绝对定位都会开启父元素的绝对定位;
+                如果所有祖先元素没有开启定位,则相对于浏览器窗口;
+                绝对定位会使元素提升层级;
+                绝对定位会改变元素形式,内联元素变成块元素,
+                块元素的宽度和高度都默认被内容撑开.
+
+            4.fixed:固定定位
+            固定定位也是一种绝对定位;
+            不同的是:
+                  固定定位永远都相对于浏览器窗口进行定位的;
+                  固定定位固定在浏览器窗口的位置,不会随滚动条而改变
+            
+            如果元素层级是一样的,则下面的元素会盖住上面的;
+            可以同z-index属性设置元素的层级,
+                指定正整数,数值越大层级越高;
+            如果没有开启定位,则不起作用
+            
+       */
+
+       position:absolute;
+       left:100px;
+       top:100px;
+       z-index:20;
+       opacity: 0.5;
+    }
+
+    .box3{
+      width: 200px;
+      height: 200px;
+      background-color: green;
+      position: absolute;
+      top: 200px;
+      left:200px;
+      z-index:30;
+
+      /* opacity可以设置元素背景的透明
+          值为0-1之间;
+          0为完全透明,1为不透明
+       */
+
+       opacity: 0.5;
+    }
+
+    /* .box4{
+      width: 200px;
+      height: 200px;
+      background-color: orange;
+      position: relative;
+      z-index: 20;
+    } */
+
+    .box5{
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      position:absolute;
+      z-index: 10;
+
+      /* 父元素层级再高也不会盖住子元素 */
+    }
+
+   
+
+  </style>
+</head>
+<body>
+
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3"></div>
+  <div class="box4">
+    <div class="box5"></div>
+  </div>
+
+
+</body>
+</html>

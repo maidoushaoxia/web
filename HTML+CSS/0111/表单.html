@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 表单的作用:将用户信息提交给服务器
+        使用form创建表单
+        form标签中必须指定action属性,该属性指向的是一个服务器的地址;
+        还需要向form中添加不同的表单项
+  -->
+
+  <form action="target.html">
+
+    <!-- 使用fieldse分组,
+          可以使用legend子标签,来指定组名
+    -->
+    <fieldset >
+        <legend>用户信息</legend>
+       <!-- 使用input创建文本框,type属性是text
+          如果希望表单项中的数据提交到服务器中,还必须给表单项指定一个name属性
+          name表示提交内容的名字
+    -->
+    
+    <!-- 通过label标签选中提示文字,
+          该标签可以指定一个for属性,该属性的值需要指定一个表单项的id值 
+    -->
+
+    <label for="um">用户名</label>
+    <input id="um" type="text" name="username"><br><br>
+
+    密码<input type="password" name="password"><br><br>
+
+    <!-- 单选按钮通过name属性进行分组,name相同属性的是一组按钮
+          需要用户选择的表单项还必须指定一个value值
+          
+          如果希望在单选和多选框指定默认选项,可以添加checked属性
+    -->
+    </fieldset>
+
+    <fieldset>
+        性别<input type="radio" name="gender" value="male">男
+        <input type="radio" name="gender" value="female" checked="checked">女
+        <br><br>
+
+    <!-- 提交按钮将表单中的信息提交给服务器 
+          使用input创建按钮,type属性是submt
+    -->
+
+    <!-- 多选框用input创建,type属性是CheckBox -->
+
+    爱好 <input type="checkbox" name="hobby" value="zq" checked="checked">足球
+        <input type="checkbox" name="hobby" value="lq">篮球
+        <input type="checkbox" name="hobby" value="ymq">羽毛球
+        <input type="checkbox" name="hobby" value="ppq">乒乓球
+        <br><br>
+
+    </fieldset>
+    
+
+   
+    <!-- 下拉列表使用select创建
+            name属性指定给select
+            value属性指定给option
+            可以在option选项中添加selected="selected"设为默认选项
+            给select添加multiple="multiple",则变为多选下拉列表
+    -->
+
+    你喜欢的明星 
+      <select name="star" multiple="multiple">
+
+          <!-- 在下拉列表中使用optgroup创建分组列表项,通过label属性指定分组名字 -->
+          <optgroup label="女明星">
+              <option value="xs">许嵩</option>
+              <option value="lhr" selected="selected">刘昊然</option>
+              <option value="jx">吉翔</option>
+          </optgroup>
+
+          <!-- 在下拉列表中使用option创建可选项 -->
+
+          <optgroup label="男明星">
+              <option value="xs">许嵩</option>
+              <option value="lhr" selected="selected">刘昊然</option>
+              <option value="jx">吉翔</option>
+          </optgroup>
+          
+      </select>
+      <br><br>
+
+      <!-- 使用textarea创建多行文本框 -->
+      自我介绍<textarea></textarea>
+      <br><br>
+
+     <input type="submit" value="注册">
+
+     <!-- 重置按钮,可以恢复默认值 -->
+     <input type="reset">
+
+      <!-- 创建单纯的按钮,没有任何功能,一般与js一起用 -->
+     <input type="button" value="按钮">
+     <br><br>
+
+     <!-- 除了使用input,还可以使用button创建,与input类似,但因为成对出现,使用起来更方便 -->
+     <button type="submit">注册</button>
+     <button type="reset">重置</button>
+     <button type="button">按钮</button>
+    
+    
+  </form>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+    <style type="text/css">
+  
+      /*
+      做完功能后,发现第一次切换图片时,会发现图片有一个非常快的闪烁
+      原因:
+          背景图片是以外部资源的形式加载近网页的,浏览器每加载一个外部资源就要发单独送一次请求
+          浏览器是在资源使用时才去加载资源
+          本练习只会加载link.png,而hover和active状态没有马上出发,因此不会被加载 
+
+      为了解决问题,可以将三张图片整合到一起,通过background-position切换图片位置
+      优点:
+          1.将多个图片整合到一起,浏览器只需要发送一次请求,可以同时加载多个图片
+          2.减小图片的总大小,提高请求速度
+
+       */
+      
+      .btn:link{
+        display: block;
+        width: 93px;
+        height: 29px;
+        background-image: url(btn.png);
+        background-repeat: no-repeat;
+      }
+
+      .btn:hover{
+        background-image: url(btn.png);
+
+        /* 当是hover状态时,希望图片向左移动 */
+        
+        background-position: -93px 0;
+      }
+
+      .btn:active{
+        background-image: url(btn.png);
+        background-position: -186px 0;
+      }
+
+    </style>
+
+</head>
+<body>
+  
+<a class="btn" href="#"></a>
+
+</body>
+</html>

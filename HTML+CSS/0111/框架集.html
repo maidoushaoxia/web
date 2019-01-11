@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+  
+    <!-- 框架集可以同时引入多个页面,使用frameset创建一个框架集
+          注意,frameset不能喝body出现在同一个页面中,所以使用框架集就不能使用body标签;
+          rows属性指定框架集中的所有页面一行一行排列,
+          cols属性指定框架集中的所有页面一列一列排列,
+          这两个必须指定一个,且必须指定每部分所占大小;
+
+          frameset中可以嵌套frameset;
+
+        frameset和iframe一样,不会被搜索引擎所检索;
+
+    -->
+
+    <frameset cols= "30%,*,30%">
+      
+      <!-- 使用frame子标签来指定要引入的页面 -->
+      <frame src="表格练习.html"></frame>;
+      <frame src="背景.html"></frame>;
+      <frameset rows="30%,40%">
+        <frame src="亚马逊练习.html"></frame>
+        <frame src="背景2.html"></frame>
+      </frameset>
+      
+    </frameset>
+  
+</html>
