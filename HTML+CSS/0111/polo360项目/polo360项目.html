@@ -73,10 +73,61 @@
   <!-- banner结束 -->
 
   <!-- content开始 -->
-  <div class="content">
+  <div class="content w clearfix">
     <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h1>
   </div>
   <!-- content结束 -->
+
+  <!-- contact开始 -->
+  <div class="contact w clearfix">
+    <!-- 三栏div -->
+    <!-- 左侧栏 -->
+    <div class="sc">
+			<h2>Social Connection</h2>
+			<!-- 设置段落 -->
+			<p class="p1">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium</p>
+			<!-- 设置小图标的div -->
+			<div class="icon">
+				<a href="#"><img src="img/rss.png" /></a>
+				<a href="#"><img src="img/fb.png" /></a>
+				<a href="#"><img src="img/in.png" /></a>
+				<a href="#"><img src="img/yt.png" /></a>
+				<a href="#"><img src="img/tw.png" /></a>
+			</div>
+				<h2 class="nl">Newsletter</h2>	
+				<p class="p1">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+        </p>
+				<!-- 创建左侧表单 -->
+				<form action="#">
+					<input class="txt" type="text" placeholder="your email address" />
+					<button class="btn">Subscribe</button>
+				</form>     
+    </div>
+    
+    <!-- 中间栏 -->
+    <div class="co">
+      <!-- 标题 -->
+      <h2>Contact</h2>
+      <!-- 表单 -->
+      <form action="#">
+        <!-- placeholder是提示文字 -->
+        <input class="txt" type="text" placeholder="your name">
+        <input class="txt" type="text" placeholder="your email address">
+        <textarea class="tarea" placeholder="message"></textarea>
+        <button class="btn">Send it</button>
+      </form>
+    </div>
+
+    <!-- 右边栏 -->
+    <div class="nu"></div>
+  </div>
+  <!-- contact结束 -->
+
+	<!-- 处理ie6的png问题 -->
+		<!--[if IE 6]>
+			<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+			<script type="text/javascript">DD_belatedPNG.fix("div,img,a,h1");</script>
+		<![endif]-->
 
 </body>
 </html>
