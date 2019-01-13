@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+  
+  //外层循环控制乘法表的高度
+  for(var i = 1; i <= 9; i++){
+    //内层循环控制宽度
+    for(var j = 1; j <= i; j++){
+      document.write("<span>"+ j + "*" + i + "=" + j * i + "</span>");
+    }
+    document.write("<br>");
+  }
+
+  </script>
+
+<style type="text/css">
+		
+  body{
+    width: 2000px;
+  }
+  
+  span{
+    display: inline-block;
+    width: 80px;
+  }
+  
+</style>
+</head>
+<body>
+  
+</body>
+</html>

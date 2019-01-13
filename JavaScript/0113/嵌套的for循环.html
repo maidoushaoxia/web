@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    /*
+      通过一个for循环来输出图形:
+			  这个for循环执行几次，图形的高度就是多少,它可以用来控制图形的高度(行);
+      在循环的内部再创建一个循环，用来控制图形的宽度(列);
+    */
+
+      for(var i = 0;i < 5;i++){
+        for(var j = 0;j < i + 1;j++){
+					document.write("*&nbsp;");//空格
+				}
+      //行:document.write("*&nbsp;");j=1;i=1;
+        //输出换行
+        document.write("<br>");
+      }
+
+      for(var i = 0;i < 5;i++){
+        for(var j = 0;j < 5 - i ;j++){
+					document.write("*&nbsp;");//空格
+				}
+      //行:document.write("*&nbsp;");j=1;i=1;
+        //输出换行
+        document.write("<br>");
+      }
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
