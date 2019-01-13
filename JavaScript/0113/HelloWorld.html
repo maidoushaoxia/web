@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <!-- 一般编写到外部js文件中,通过script标签引入 
+      一旦script标签引入了外部文件,就不能再编写代码,即使编写了浏览器也会忽略;
+      除非创建一个新的script标签
+  -->
+  <script type="text/javascript" src="js/HelloWorld.js">
+
+    // alert("我是内部的js代码");
+
+  </script>
+
+<script type="text/javascript">
+
+  alert("我是内部的js代码");
+
+</script>
+
+
+   <!-- JS代码需要写到script标签中 -->
+  <!-- <script type="text/javascript">
+
+    // 控制浏览器弹出警告窗
+    alert("HelloWorld");
+
+    // 向body中输出一个内容,即计算机在页面中输出内容
+    document.write("你好呀");
+
+    // 向控制台输出内容
+    console.log("我在这里");
+  
+  </script>  -->
+
+</head>
+<body>
+  
+    <!-- 以下两种方法都不推荐使用 -->
+
+    <!-- JS代码也可以写到标签的onclik属性中
+          当点击按钮时,js代码才会执行
+    -->
+  <!-- <button onclick="alert('哈哈哈')">点我一下</button> -->
+
+  <!-- 也可以将js代码写到超链接的href属性中,这样点击超链接时,会执行js代码
+   -->
+  <!-- <a href="JavaScript:alert('嘿嘿嘿');">也点我一下</a>
+  <a href="JavaScript:;">也点我一下</a> -->
+
+</body>
+</html>

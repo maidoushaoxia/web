@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+ /* 
+    六种数据类型:
+      五种基本数据类型
+        String:字符串
+        Number:数值
+        Boolean:布尔值
+        Null:空值
+        Undefined:未定义
+      一种引用数据类型
+        Object:对象
+
+       1. String字符串:
+          需要使用引号,单引号或双引号都可以,但不能混用且不能嵌套;
+          表示一些特殊符号时可以使用\作为转义字符
+            \""表示"
+            \'表示'
+            \n表示换行
+            \t表示制表符
+
+        2.Number数值:
+          js中所有数值都是Number类型
+            包括整数和小数
+          可以用typeof检查变量的类型
+            语法:typeof 变量
+          字符串返回string,数值返回number
+
+          js中数字的最大值:1.7976931348623157e+308
+          如果数字超过了最大值,则返回Infinity;
+          用typeof检查Infinity也返回Number;
+
+          NAN是一个特殊的数字,表示Not A Number;
+          用typeof检查NAN也返回Number;
+
+           js整数运算基本可以保证精确,但进行浮点运算结果不精确
+
+        3.Boolean布尔值:
+          只有两个值,true表示真,false表示假
+
+        4.Null:
+          只有一个值,就是null
+          用来表示一个为空的对象
+          使用typeof检查null,返回object
+
+        5.Undefined:
+          只有一个值,就是undefined
+          当声明一个变量为声明时,值为undefined
+          使用typeof检查undefined,返回undefined
+
+      强制类型转换:
+        主要是将其他数据类型转换为String,Number,Boolean
+          1.将其他数据类型转换为String
+              方法一:调用被转换类型的toString()方法;
+                      a = a.toString();
+                    不会影响原变量,返回的是转换的结果
+                    注意:null和undefined没有toString()方法
+              方法二:调用String()函数并将被转换的数据作为参数传递给函数;
+                      a = String(a);
+                    使用String()函数做强制类型转换时,
+                      对于Number和Boolean也就是调用toString()方法,
+                      对于null和undefined就使直接转换为字符串
+          
+          2.将其他数据类型转换为Number
+              方法一:使用Number()函数;
+                      a = Number(a);
+                      字符串转数字:
+                        (1).若是纯数字内容字符串,则直接转换为数字
+                        (2).若有非数字的内容,则转换为NaN;
+                        (3).若是空串或全是空格,则转换为0;
+                      布尔值转数字:
+                        (1).true转为1;
+                        (2).false转为0;
+                      Null转为数字:
+                        直接转为0;
+                      undefined转为数字:
+                        直接转为NaN.
+
+              方法二:专门用来对付字符串,如果对非String,会将其转换为String,然后再操作
+                  parseInt(123px):将一个字符串中有效的整数内容取出来转换为Number
+                  parseFloat(123.567px):还能获得有效的小数
+
+          其他进制的数字:
+              16进制:0x开头;
+              8进制:0开头;
+              2进制:0b开头
+
+              "070"这种数字有的会被当成8进制,为了避免,可以通过parseInt(a,10)表示10进制
+
+        3.将其他数据类型转换为Boolean:使用Boolean()函数
+            数字转布尔:除了0和NaN是false,其余都是true;
+            字符串转布尔:除了空串是false,其余都是true;
+            null和undefined都转换为false.
+
+            
+          var a = 123;
+          var b = "123";
+          console.log(typeof a);
+          console.log(typeof b);
+          console.log(Number.MAX_VALUE);
+          console.log(Number.MIN_VALUE);
+*/
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
