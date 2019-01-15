@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+  //定义一个求和函数,可以在()中指定多个形参,在调用函数时,可以在()中指定实参
+  function sum(a,b) {
+    console.log(a+b);
+  }
+  sum(1,2);
+
+  //调用函数时,浏览器不会检查实参的类型,所以有可能接收到非法的参数
+
+  //用 return 来设置函数的返回值:return 值,可以定义一个变量，来接收该结果
+  function sum2(c,d) {
+    var e = c + d;
+    return e;
+    //return后的语句都不会执行
+    alert("hhh");
+  }
+  var result = sum2(3,4);
+  console.log(result);
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

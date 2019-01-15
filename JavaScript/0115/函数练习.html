@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+
+  // 定义一个函数，判断一个数字是否是偶数，如果是返回true，否则返回false
+  function isOu(num){
+    return num%2 == 0;
+  }
+  var result = isOu(15);
+  console.log(result);
+
+  // 定义一个函数，可以根据半径计算一个圆的面积，并返回计算结果
+  function mianji(r){
+    return 3.14*r*r;
+  }
+  result = mianji(5);
+  console.log(result);
+
+  //创建一个函数，可以在控制台中输出一个人的信息,可以输出人的 name age gender address
+  function sayHello(name,age,gender,address){
+    console.log("我是"+name+",我今年"+age+"岁,我是"+gender+"生,我住在"+address)
+  }
+  sayHello("孙悟空",28,"男","花果山");
+
+  //创建对象方法
+  function sayHello2(o){
+    console.log("我是"+o.name+",我今年"+o.age+"岁,我是"+o.gender+"生,我住在"+o.address)
+  }
+
+  var obj={
+    name:"孙悟空",
+    age:18,
+    gender:"男",
+    address:"花果山"
+  };
+  sayHello2(obj);
+
+  //实参可以是一个对象,也可以是一个函数
+  function fun(a){
+    // console.log("a="+a);
+    a(obj);
+  }
+  // fun(sayHello2);
+  fun(function(){});
+
+  //mianji()--调用函数,相当于使用函数的返回值
+  //mianji--函数对象,相对于直接使用函数对象
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

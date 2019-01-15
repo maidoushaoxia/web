@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+  /*
+    函数也是对象,
+    函数中可以封装一些功能（代码），在需要时可以执行这些功能（代码）
+    可以将要封装的代码一字符串的形式传递给构造函数
+  */
+
+  //创建函数对象
+  var fun = new Function("console.log('这是我的第一个函数');");
+
+  //封装到函数中的代码不会立即执行,会在函数调用的时候执行
+  //调用函数:函数对象()
+  fun();
+
+  /*使用函数声明创建对象:
+    function 函数名([形参1,形参2,...]){       //中括号意思是可选的
+      语句...
+     }
+  */
+  function fun2(){
+    console.log("这是我的第二个函数");
+    alert("哈哈哈哈");
+  }
+  //调用fun2
+  fun2();
+
+  /*使用函数表达式创建函数
+    var 函数名 = function([形参1,形参2,..]){
+      语句...
+    }
+  */
+  var fun3=function(){
+    console.log("我是匿名函数中封装的代码");
+  };
+  fun3();
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
