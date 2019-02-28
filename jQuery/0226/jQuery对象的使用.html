@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/jquery-1.12.3.js"></script>
+  <script>
+  
+    /*
+   需求:
+   需求1. 统计一共有多少个按钮
+   需求2. 取出第2个button的文本
+   需求3. 输出所有button标签的文本
+   需求4. 输出'测试三'按钮是所有按钮中的第几个
+   */
+
+   $(function(){
+     //需求1. 统计一共有多少个按钮
+      //size()/length: 包含的DOM元素个数
+      var btns = $('button');
+      console.log(btns.size(),btns.length);
+
+     //需求2. 取出第2个button的文本
+      //[index]/get(index): 得到对应位置的DOM元素
+      console.log(btns[1].innerHTML,btns.get(1).innerHTML);
+
+     //需求3. 输出所有button标签的文本
+      //each(): 遍历包含的所有DOM元素
+      /*
+      btns.each(function(index,domEle){
+        console.log(index,domEle.innerHTML,this);
+      });
+      */
+      btns.each(function(){
+        console.log(this.innerHTML);
+      });
+
+    //需求4. 输出'测试三'按钮是所有按钮中的第几个
+      //index(): 得到在所在兄弟元素中的下标
+      console.log($('#btn3').index());
+
+    /*
+       1. 伪数组
+         Object对象
+         length属性
+         数值下标属性
+         没有数组特别的方法: forEach(), push(), pop(), splice()
+    */
+      console.log(btns instanceof Array);
+      
+   });
+
+
+  </script>
+</head>
+<body>
+  <button>测试一</button>
+  <button>测试二</button>
+  <button id="btn3">测试三</button>
+  <button>测试四</button>
+</body>
+</html>
