@@ -15,11 +15,33 @@
     //1.安装浏览器(用户代理)
     //xhr 就类似于浏览器的作用（发送请求接收响应）
     var xhr = new XMLHttpRequest();
+
+   /*
+    如果需要第一个状态,需要注意代码执行的顺序问题
+    xhr.onreadystatechange = function(){
+        //这个事件不是只在响应时才触发,只要状态改变就触发
+        // console.log(1);
+        console.log(this.readyState);
+      };
+   */ 
+    
+
     //2.打开浏览器,输入网址
     xhr.open('GET','http://0302.io/0302/time.php');
     //3.敲回车键,开始请求
     xhr.send();
+      //响应需要时间,无法通过返回值的方式返回响应
     //4.等待响应
+      //AJAX API采用事件的机制
+     xhr.onreadystatechange = function(){
+      //这个事件不是只在响应时才触发,只要状态改变就触发
+      // console.log(1);
+      // console.log(this.readyState);
+      if(this.readyState !== 4) return
+      //获取响应的内容(响应体)
+      console.log(this.responseText);
+    };  
+
     //5.看结果
   
   </script>

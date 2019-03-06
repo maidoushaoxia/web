@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    
+    .loading{
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, .6);
+      font-size: 30px;
+    }
+  
+  </style>
+</head>
+<body>
+  <div class="loading">正在玩命加载中...</div>
+  <button id="btn">请求</button>
+  <script src="jquery.js"></script>
+  <script>
+
+    $(document)
+    .ajaxStart(function(){
+      $('.loading').fadeIn();
+      //显示加载提示
+      console.log("要开始请求了");
+
+    })
+
+    .ajaxStop(function(){
+      $('.loading').fadeOut();
+      //结束提示
+      console.log("请求结束了");
+
+    })
+
+  
+    $('#btn').on('click',function(){
+      $.get('time.php');
+    })
+
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET','time.php',ture);
+    xhr.send();    // 等到请求响应的过程全部完成再继续
+    xhr.onreadystatechange = function(){
+      console.log(this.state);
+    }
+
+  </script>
+</body>
+</html>

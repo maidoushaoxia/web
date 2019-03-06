@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  
+    //AJAX 请求 XML 格式的数据
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET','xml.php');
+    xhr.send();
+    xhr.onreadystatechange = function(){
+      if(this.readyState !==4) return;
+      // this.responseXML 专门用于获取服务端返回的 XML 数据，操作方式就是通过 DOM 的方式操作
+      // 但是需要服务端响应头中的 Content-Type 必须是 application/xml
+      console.log(this.responseXML.documentElement.children[0].innerHTML);
+    }
+  
+  </script>
+</body>
+</html>

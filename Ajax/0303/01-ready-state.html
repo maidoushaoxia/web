@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  
+    var xhr = new XMLHttpRequest();
+    console.log(xhr.readyState);
+    //0 : 初始化 请求代理对象
+
+    xhr.open('GET','time.php');
+    console.log(xhr.readyState);
+    //1 : open方法已经调用,建立一个与服务端80(特定)端口的链接
+
+    xhr.send();
+
+    xhr.addEventListener('readystatechange',function(){
+      // if(this.readyState !==4) return
+      // console.log(this.responseText);
+      switch(this.readyState) {
+        case 2:
+          //可以拿到头,还没有拿到体
+          console.log(this.getAllResponseHeaders());
+          console.log(this.responseText);
+          //2 : 已经接收到响应报文的报文头
+          break;
+
+        case 3:
+          console.log(this.responseText);
+          //3 : 正在下载响应报文的响应体,有可能响应头为空,也有可能不完整,在这里处理响应体不保险
+          break;
+
+        case 4:
+          console.log(this.responseText);
+          //4 :一切OK,整个响应报文已经完整下载下来了
+          break;
+      }
+    });
+  
+  </script>
+</body>
+</html>

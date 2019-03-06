@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    //封装者
+  
+    function ajax(method,url,params,done){
+      method = method.toUpperCase();
+      var xhr = new XMLHttpRequest();
+
+      if(typeof params == 'object'){
+        var tempArr = [];
+        for(var key in params){
+          var value = params[key];
+          tempArr.push(key + '=' + value);
+        }
+        params = tempArr.join('&');
+      }
+      
+      if(method == 'GET') {
+        url += '?' + params;
+      }
+      
+      xhr.open(method,url,false);
+
+      var data = null;
+      if(method == 'POST') {
+        xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+        data = params;
+      }
+
+
+      xhr.onreadystatechange = function(){
+        if(this.readyState !== 4) return;
+        done(this.responseText);
+      }
+      
+      xhr.send(data);
+    }
+
+    //调用者
+
+    var onDone = function(res){
+      console.log('哈哈哈');
+      console.log('ooooo');
+      console.log(res);
+      console.log('做完了');
+    }
+    
+    ajax('GET','time.php',{},onDone);
+    // ajax('POST','add.php',{key1:'value1',key2:'value2'});
+    // ajax('POST','add.php','key1=value1');
+    // ajax('post','add.php','key1=value1');
+
+    // var res = ajax('GET','time.php',{id:1});
+    // console.log(res);
+
+    </script>
+</body>
+</html>
