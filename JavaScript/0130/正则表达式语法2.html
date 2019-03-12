@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    /*检查一个字符串中是否含有.
+    . 表示任意字符;
+      在正则表达式中使用\作为转义字符:
+          \. 表示.;
+           \\ 表示\
+
+      使用构造函数时，由于它的参数是一个字符串，而\是字符串中转义字符，如果要使用\则需要使用\\来代替
+    */
+    var reg = /\./;
+    reg = /\\/;
+    console.log(reg.test("b.\\"));
+
+    //\w:任意字母,数字,_ ,相当于[A-z0-9_]
+    reg = /\w/;
+    console.log(reg.test("e"));
+
+    //\W:除了字母,数字,_ ,相当于[^A-z0-9_]
+    reg = /\W/;
+    console.log(reg.test("e"));
+
+    //\d:任意的数字,相当于[0-9]
+    reg = /\d/;
+    console.log(reg.test(3));
+
+    //\D: 除了数字,相当于[^0-9]
+    reg = /\D/;
+    console.log(reg.test(3));
+
+    //\s:空格
+    reg = /\s/;
+    console.log(reg.test(" "));
+
+    //\S:除了空格
+    reg = /\S/;
+    console.log(reg.test(" "));
+
+    console.log("-------------");
+
+
+    //\b:单词边界;\B:除了单词边界
+    //创建一个正则表达式检查一个字符串中是否含有单词child
+    reg = /\bchild\b/;
+    console.log(reg.test("hello child"));
+
+    //接收一个用户的输入
+    // var str = prompt("请输入你的用户名:");
+    str = "              he  llo        ";
+
+    //去除掉字符串中的空格:使用""来替换空格
+    // str = str.replace(/\s/g, "");
+
+    // 去除开头的空格
+    // str = str.replace(/^\s*/, "");
+
+    // 去除结尾的空格
+    // str = str.replace(/\s*$/, "");
+
+    //匹配开头和结尾的空格
+    str = str.replace(/^\s*|\s*$/g, "");
+
+    console.log(str);
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

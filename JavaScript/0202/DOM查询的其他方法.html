@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    window.onload = function () {
+      //获取body标签
+      // var body = document.getElementsByTagName("body")[0];
+
+      //在document中有一个属性body,它保存的是body的引用
+      var body = document.body;
+      console.log(body);
+
+      //document.documentElement保存的是html根标签
+      var html = document.documentElement;
+      console.log(html);
+
+      //document.all代表页面中所有元素
+      var all = document.all;
+      for (var i = 0; i < all.length; i++) {
+        console.log(all[i]);
+      }
+
+      //根据元素的class属性查询一组元素节点对象
+      var box1 = document.getElementsByClassName("box1");
+      console.log(box1.length);
+
+      //获取页面中所有的div
+      var divs = document.getElementsByTagName("div");
+
+      //获取class为box1中的所有div: .box1 div
+      //document.querySelector():需要一个选择器的字符串作为参数,可以根据一个CSS选择器来查询一个元素节点
+      //该方法只返回第一个
+      var div = document.querySelector(".box1 div");
+      var box1 = document.querySelector(".box1");
+      console.log(div.innerHTML);
+      console.log(box1);
+
+      //document.querySelectorAll()用法类似,但是它会将符合条件的封装到一个数组中
+
+
+    }
+
+  </script>
+</head>
+
+<body>
+  <div class="box1">
+    <div>我是box1中的div</div>
+  </div>
+  <div></div>
+
+</body>
+
+</html>

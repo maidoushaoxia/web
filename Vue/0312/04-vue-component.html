@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 组件调用 -->
+    <my-component></my-component>
+  </div>
+  <script src="js/vue.js"></script>
+  <script>
+    //1.创建组件
+    Vue.component("my-component", {
+      template:`
+      <div>
+      <h1>第一个组件</h1>
+      <h4>第二个组件</h4>
+      </div>` //模板
+    });
+
+    var exampleData = {
+      msg:"hello vue",
+    };
+
+    new Vue({
+      el:"#app",
+      data:exampleData,
+    });
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    var arr = ["张三", "李四", "王五"];
+
+    //push():向数组的末尾添加一个活多个元素,并返回数组新的长度
+    var result = arr.push("赵六", "泡泡");
+    console.log(arr);
+    console.log(result);
+
+    //pop():删除数组的最后一个元素并返回被删除的元素
+
+    result = arr.pop();
+    console.log(arr);
+    console.log(result);
+
+    //unshift():向数组的开头添加一个或多个元素,并返回新的数组长度;插入元素后,其他元素的索引会依次调整
+    arr.unshift("天天");
+    console.log(arr);
+
+    //shift():删除第一个元素并返回被删除的元素
+    result = arr.shift();
+    console.log(result);
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

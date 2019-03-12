@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      <h4>{{name}}</h4>
+      <h4>{{name | myTextTransform(true)}}</h4>
+      <h4>{{name | myTextTransform(false)}}</h4>
+    </div>
+     <script src="js/vue.js"></script>
+    <script>
+        var exampleData = {
+          msg:"hello vue",
+          name:"James",
+        };
+        new Vue({
+          el:"#app",
+          data:exampleData,
+          filters:{ //过滤器定义在此处理
+            myTextTransform:function(myInput,arg1){
+              if(arg1){
+                return myInput.toUpperCase();
+              }
+              else{
+                return myInput.toLowerCase();
+              }
+            }
+
+
+          }
+  
+        });
+      
+      
+      </script>
+</body>
+</html>

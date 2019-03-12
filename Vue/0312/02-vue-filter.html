@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      <h4>{{price}}</h4>
+      <h4>{{price | myCurrency('$')}}</h4>
+    </div>
+     <script src="js/vue.js"></script>
+    <script>
+        var exampleData = {
+          msg:"hello vue",
+          price:356
+        };
+        new Vue({
+          el:"#app",
+          data:exampleData,
+          filters:{ //过滤器定义在此处理
+            myCurrency:function(myInput,arg1){
+              //myInput:过滤器 | 前变量值
+              //arg1:'$' 函数中参数货币符号
+              var result = arg1+myInput;
+              return result;
+            },
+
+          }
+  
+        });
+      
+      
+      </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{count}}
+    <button @click="updateCount">Click me</button>
+    <hr>
+    <hr>
+    <h3 v-if="count<6" v-change="count">自定义指令</h3>
+  </div>
+  <script src="js/vue.js"></script>
+  <script>
+    //点击button，将count变量加1
+    var exampleData = {
+      msg:"hello vue",
+      count:0
+    };
+    new Vue({
+      el:"#app",
+      data:exampleData,
+      methods: {
+        updateCount:function(){
+          this.count++;
+        }
+      },
+      directives:{
+        change:{
+          bind:function(el,bindings){
+            
+          },
+          update:function(el,bindings){
+            console.log("指令绑定的数值发生变化");
+            console.log(el);
+            console.log(bindings);            
+            console.log(bindings.value);
+
+          },
+          unbind:function(el,bindings){
+            console.log("解除绑定");
+          }
+        }
+      }
+    });
+  
+  
+  </script>
+</body>
+</html>
