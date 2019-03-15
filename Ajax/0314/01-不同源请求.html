@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  
+    //1.img
+    //可以发送不同源地址之间的请求,无法拿到响应结果
+    /*
+    var img = new Image();
+    img.src = 'http://locally.uieee.com/categories'
+    */
+
+    //2.link
+    // 可以发送不同源地址之间的请求
+    // 无法拿到响应结果
+    /*
+    var link = document.createElement('link');
+    link.rel = 'stylesheet'
+    link.href = 'http://locally.uieee.com/categories'
+    document.body.appendChild(link);
+    */
+    
+    //3. script
+    // 可以发送不同源地址之间的请求
+    // 无法拿到响应结果
+    // 借助于能够作为 JS 执行
+    var script = document.createElement('script');
+    script.src = 'http://localhost/time.php';
+    document.body.appendChild(script);  // 开始发起请求
+
+    
+    // 相当于请求的回调
+    function foo (res) {
+      console.log(res)
+    }
+  
+  </script>
+</body>
+</html>

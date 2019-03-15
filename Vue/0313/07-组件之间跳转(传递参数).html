@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .base{
+      width:320px;
+      height:300px;
+      background:#ddd;
+      border:3px solid #1b6d85;
+      padding:12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+  <script>
+    //接收参数
+    var myMain = Vue.component("my-main", {
+      data:function(){
+        return {uName:0,uPwd:0} //接收参数
+      },
+      template:`
+      <div>
+          <h1>用户名为{{uName}}</h1> 
+          <h1>密码为{{uPwd}}</h1> 
+      </div>
+      `,
+      mounted: function() {
+        //接收参数
+        console.log(this.$route.params);
+        // this.uName = this.$route.params.userName;
+        this.uName = this.$route.params.userName;
+        this.uPwd = this.$route.params.userPwd;
+      },
+    });
+
+    //发送参数
+    var myLogin = Vue.component("my-login", {
+      data:function(){
+        return {user_name:"",user_pwd:""}
+      },
+      template:`
+        <div>
+          <h1>登陆页面</h1> 
+          用户名:<input type="text" v-model="user_name"/>
+          <br>
+          密码:<input type="text" v-model="user_pwd"/>
+          <br>
+          <button @click="doLogin">登录到主页面</button>
+          <router-link :to="'/main/'+user_name+'/'+user_pwd">登录到主页面</router-link>
+        </div>
+      `,
+      methods: {
+        doLogin:function(){
+          //跳转到主页面,并将用户输入的名字一并发送过去
+          this.$router.push("/main/"+this.user_name+"/"+this.user_pwd);
+        }
+      },
+
+    });
+    var NotFound = Vue.component("not-found", {
+      template:`
+        <div class="base">
+          <h1>404 Page Not Found</h1> 
+          <router-link to="/login">返回首页</router-link>
+        </div>
+      `,
+    });
+
+  const myRoutes = [
+    {path:"",component:myLogin},
+    {path:"/login",component:myLogin},
+    {path:"/main/:userName/:userPwd",component:myMain},
+    {path:"*",component:NotFound}, //没有匹配到上述任何一个路由地址:跳转404页面
+  ];
+
+  const myRouter = new VueRouter({
+    routes:myRoutes
+  });
+
+  new Vue({
+    router:myRouter,
+    el:"#app",
+  })
+  
+  </script>
+</body>
+</html>

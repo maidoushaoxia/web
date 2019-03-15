@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      .base{
+        width:320px;
+        height:300px;
+        background:#ddd;
+        border:3px solid #1b6d85;
+        padding:12px;
+        text-align: center;
+      }
+    </style>
+</head>
+<body>
+  <div id="app">
+    <!-- 显示login/main -->
+    <router-view></router-view>
+  </div>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+  <script>
+    //创建四个组件(login/main/inbox/outbox)
+    var login = Vue.component("my-login", {
+      template:`
+        <div>
+          <h1>登录组件</h1> 
+          <router-link to="/main">跳转到主页面</router-link>
+        </div>
+      `,
+    });
+    var main = Vue.component("my-main", {
+      template:`
+        <div>
+          <h1>邮箱的主页面</h1> 
+          <ul>
+            <li>
+              <router-link to="/inbox">收件箱<router-link>
+            </li>
+            <li>
+              <router-link to="/outbox">发件箱<router-link>
+            </li>
+          </ul>
+          <router-view></router-view>
+        </div>
+      `,
+    });
+    var inbox = Vue.component("my-inbox", {
+      template:`
+        <div>
+          <ul>
+            <li>未读邮件1</li>
+            <li>未读邮件2</li>
+            <li>未读邮件3</li>
+          </ul>
+        </div>
+      `,
+    });
+    var outbox = Vue.component("my-outbox", {
+      template:`
+        <div>
+          <ul>
+            <li>已发邮件1</li>
+            <li>已发邮件2</li>
+            <li>已发邮件3</li>
+          </ul>
+        </div>
+      `,
+    });
+
+    //创建路由词典
+    const myRoutes = [
+     {path:"",redirect:"/login"},
+     {path:"/login",component:login},
+     {path:"/main",component:main,
+        children:[
+          {path:"/inbox",component:inbox},
+          {path:"/outbox",component:outbox},
+        ]
+     },
+    ];
+
+    const myRouter = new VueRouter({
+      routes:myRoutes
+    });
+
+    new Vue({
+      router:myRouter,
+      el:"#app",
+    })
+  
+  </script>
+</body>
+</html>

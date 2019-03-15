@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <xiong-da></xiong-da>
+    <xiong-er></xiong-er>
+  </div>
+  <script src="js/vue.js"></script>
+  <script>
+
+    //创建公共Vue对象
+    var bus = new Vue();
+
+    //创建组件一
+    Vue.component("xiong-er", {
+      template:`
+        <div>
+          <h4>熊二接收数据</h4> 
+          <button @click="setData2">熊二发送数据</button> 
+        </div>
+      `,
+      mounted: function() {
+        bus.$on("event1",function(msg){
+          console.log("熊大发来的消息:"+msg);
+        })
+      },
+      methods:{
+        setData2:function(){
+          bus.$emit("event2","收到");
+        }
+      },
+      
+    });
+
+    //创建组件二
+    Vue.component("xiong-da", {
+      template:`
+        <div>
+          <h4>熊大发数据</h4> 
+          <button @click="setData1">发送数据</button>
+        </div>
+      `,
+      methods: {
+        setData1:function(){
+          bus.$emit("event1","光头强偷木头了");
+        }
+      },
+      mounted:function(){
+        bus.$on("event2",function(msg){
+          console.log("熊二发来的消息:"+msg);
+        })
+      },
+    });
+ 
+
+    new Vue({
+      el:"#app",
+    });
+
+  </script>
+</body>
+</html>
