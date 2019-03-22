@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./vue.js"></script>
+  <script src="./velocity.min.js"></script>
+  <style>
+   
+  </style>
+</head>
+<body>
+  
+  <div id="app">
+    <transition
+      name="fade"
+      @before-enter="handleBeforClick"
+      @enter="handleEnter"
+      @after-enter="handleAfterEnter"
+    >
+      <div v-show="show">Hello World</div>  
+    </transition>
+    <button @click='handleClick'>切换</button>
+  </div>
+
+  <script>
+  
+    var vm = new Vue({
+      el:'#app',
+      data:{
+        show:true
+      },
+      methods: {
+        handleClick:function(){
+          this.show = !this.show;
+        },
+        handleBeforClick:function(el){
+          // el.style.color="red"
+          el.style.opacity=0;
+        },
+        handleEnter:function(el,done){
+          // setTimeout(() => {
+          //   el.style.color="green"
+          // }, 2000);
+
+          // setTimeout(() => {
+          //   done();
+          // }, 4000);
+          Velocity(el,{
+              opacity:1
+            },{
+              duration:1000,
+              complete:done
+            })
+        },
+        handleAfterEnter:function(el){
+          // el.style.color="black"
+          console.log("动画结束")
+        }
+      },
+    })
+  
+  </script>
+
+</body>
+</html>
