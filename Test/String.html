@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    var colorText = "red,blue,green,yellow";
+    var colors1 = colorText.split(",");      //["red", "blue", "green", "yellow"]
+    var colors2 = colorText.split(",", 2);   //["red", "blue"]
+    var colors3 = colorText.split(/[^\,]+/); //["", ",", ",", ",", ""]
+    
+    console.log(colors1);
+    console.log(colors2);
+    console.log(colors3);
+
+  </script>
+</body>
+</html>
