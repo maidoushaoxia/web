@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="js/vue.js"></script>
+
+  <div id="app">
+    <ul>
+       <!-- <li v-for="book in books">{{book.name}}</li> -->
+       <!-- <li v-for="(book,index) in books">{{index}} - {{book.name}}</li> -->
+      <template v-for="book in books">
+        <li>书名: {{book.name}}</li>
+        <li>作者:{{book.author}}</li>
+      </template>
+     
+    </ul>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el:"#app",
+      data:{
+        books:[
+          {
+            name:"《Vue.js实战》",
+            author:"梁灏"
+          },
+          {
+            name:"《JavaScript高级程序设计》",
+            author:"C.Zakas"
+          },
+          {
+            name:"《数据结构与算法分析》",
+            author:"Mark"
+          }
+        ]
+      }
+    })
+  </script>
+</body>
+</html>
