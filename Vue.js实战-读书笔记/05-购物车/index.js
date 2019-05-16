@@ -138,7 +138,7 @@ var app = new Vue({
       var tableStatus = true;
       for(var j=0;j<tableItem.productList.length;j++){
         if(tableItem.productList[j].status == false){
-          statableStatustus = false;
+          tableStatus = false;
         }
       }
       return tableStatus;
@@ -147,7 +147,7 @@ var app = new Vue({
       var tableStatus = this.isCheckedTable(tableItem);
       tableStatus = tableStatus ? false : true;
       for(var j=0;j<tableItem.productList.length;j++){
-        tableItem.productList[i].status = tableStatus;
+        tableItem.productList[j].status = tableStatus;
       }
     }
   },
