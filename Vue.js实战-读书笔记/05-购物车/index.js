@@ -3,47 +3,152 @@ var app = new Vue({
   data:{
     list:[
       {
-        id:1,
-        name:'iPhone7',
-        price:6188,
-        count:1 
+        class:"电子产品",
+        productList:[
+          {
+            id:1,
+            name:'iPhone7',
+            price:6188,
+            count:1,
+            status:true
+          },
+          {
+            id:2,
+            name:'iPad Pro',
+            price:5888,
+            count:1,
+            status:true
+          },
+          {
+            id:1,
+            name:'MacBook Pro',
+            price:21488,
+            count:1,
+            status:true 
+          }
+        ]
       },
       {
-        id:2,
-        name:'iPad Pro',
-        price:5888,
-        count:1 
+        class:"生活用品",
+        productList:[
+          {
+            id:1,
+            name:'面纸',
+            price:18,
+            count:10,
+            status:true
+          },
+          {
+            id:2,
+            name:'洗衣液',
+            price:40,
+            count:2,
+            status:true
+          },
+          {
+            id:1,
+            name:'牙膏',
+            price:8,
+            count:3,
+            status:true 
+          }
+        ]
       },
       {
-        id:1,
-        name:'MacBook Pro',
-        price:21488,
-        count:1 
-      },
+        class:"果蔬",
+        productList:[
+          {
+            id:1,
+            name:'苹果',
+            price:5,
+            count:6,
+            status:true
+          },
+          {
+            id:2,
+            name:'香蕉',
+            price:3,
+            count:10,
+            status:true
+          },
+          {
+            id:1,
+            name:'西瓜',
+            price:30,
+            count:1,
+            status:true 
+          }
+        ]
+      }
     ]
   },
   computed: {
     totalPrice:function(){
       var total = 0;
       for(var i=0;i<this.list.length;i++){
-        var item = this.list[i];
-        total += item.price * item.count;
+        for(var j=0;i<this.list[i].productList.length;j++){
+          var item = this.list[i].productList[j];
+          if(item.status == true){
+            total += item.price * item.count;
+          }
+        }
       }
       return total.toString().replace(/\B(?=(\d{3})+$)/g,",");
     }
   },
   methods: {
-    handleReduce:function(index){
-      if(this.list[index].count==1){
+    handleReduce:function(item){
+      if(item.count==1){
         return;
       }
-      this.list[index].count--;
+      item.count--;
     },
-    handleAdd:function(index){
-      this.list[index].count++;
+    handleAdd:function(item){
+      item.count++;
     },
-    handleRemove:function(index){
-      this.list.splice(index,1);
+    handleRemove:function(index,tableIndex){
+      this.list[tableIndex].productList.splice(index,1);
+    },
+    handleChecked:function(item){
+      item.status = !item.status;
+    },
+    isChecked:function(item){
+      return item.status;
+    },
+    isCheckedAll:function(){
+      var checkAllStatus = true;
+      for(var i=0;i<this.list.length;i++){
+        for(var j=0;j<this.list[i].productList.length;j++){
+          if(this.list[i].productList[j].status == false){
+            checkAllStatus = false;
+          }
+        }
+      }
+      return checkAllStatus;
+    },
+    CheckAll:function(){
+      var checkAllStatus = this.isCheckedAll();
+      checkAllStatus = checkAllStatus ? false : true;
+      for(var i=0;i<this.list.length;i++){
+        for(var j=0;j<this.list[i].productList.length;j++)
+        this.list[i].productList[j].status = checkAllStatus;
+      }
+    },
+    isCheckedTable:function(tableItem){
+      var tableStatus = true;
+      for(var j=0;j<tableItem.productList.length;j++){
+        if(tableItem.productList[j].status == false){
+          statableStatustus = false;
+        }
+      }
+      return tableStatus;
+    },
+    handleTable:function(tableItem){
+      var tableStatus = this.isCheckedTable(tableItem);
+      tableStatus = tableStatus ? false : true;
+      for(var j=0;j<tableItem.productList.length;j++){
+        tableItem.productList[i].status = tableStatus;
+      }
     }
   },
 })
