@@ -86,7 +86,7 @@ var app = new Vue({
     totalPrice:function(){
       var total = 0;
       for(var i=0;i<this.list.length;i++){
-        for(var j=0;i<this.list[i].productList.length;j++){
+        for(var j=0;j<this.list[i].productList.length;j++){
           var item = this.list[i].productList[j];
           if(item.status == true){
             total += item.price * item.count;
@@ -115,6 +115,22 @@ var app = new Vue({
     isChecked:function(item){
       return item.status;
     },
+    isCheckedTable:function(tableItem){
+      var tableStatus = true;
+      for(var i=0;i<tableItem.productList.length;i++){
+        if(tableItem.productList[i].status == false){
+          tableStatus = false;
+        }
+      }
+      return tableStatus;
+    },
+    handleTable:function(tableItem){
+      var tableStatus = this.isCheckedTable(tableItem);
+      tableStatus = tableStatus ? false : true;
+      for(var i=0;i<tableItem.productList.length;i++){
+        tableItem.productList[i].status = tableStatus;
+      }
+    },
     isCheckedAll:function(){
       var checkAllStatus = true;
       for(var i=0;i<this.list.length;i++){
@@ -126,7 +142,7 @@ var app = new Vue({
       }
       return checkAllStatus;
     },
-    CheckAll:function(){
+    checkAll:function(){
       var checkAllStatus = this.isCheckedAll();
       checkAllStatus = checkAllStatus ? false : true;
       for(var i=0;i<this.list.length;i++){
@@ -134,21 +150,5 @@ var app = new Vue({
         this.list[i].productList[j].status = checkAllStatus;
       }
     },
-    isCheckedTable:function(tableItem){
-      var tableStatus = true;
-      for(var j=0;j<tableItem.productList.length;j++){
-        if(tableItem.productList[j].status == false){
-          tableStatus = false;
-        }
-      }
-      return tableStatus;
-    },
-    handleTable:function(tableItem){
-      var tableStatus = this.isCheckedTable(tableItem);
-      tableStatus = tableStatus ? false : true;
-      for(var j=0;j<tableItem.productList.length;j++){
-        tableItem.productList[j].status = tableStatus;
-      }
-    }
   },
 })

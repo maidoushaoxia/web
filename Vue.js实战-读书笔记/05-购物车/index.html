@@ -28,7 +28,7 @@
 
           <tr v-for="(item,index) in tableItem.productList">
             <td>
-              <input type="checkbox" @click="handleChecked(item)" :checked="isCheckedTable(item)">
+              <input type="checkbox" @click="handleChecked(item)" :checked="isChecked(item)">
             </td>
             <td>{{index + 1}}</td>
             <td>{{item.name}}</td>
