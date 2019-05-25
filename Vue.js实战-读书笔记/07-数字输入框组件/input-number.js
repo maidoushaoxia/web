@@ -1,7 +1,11 @@
+function isValueVumber(value){
+  return ( /(^-?[0-9]+\.{1}\d+$) | (^-?[1-9][0-9]*$) | (^-?0{1}$)/ ).test(value+'');
+}
+
 Vue.component('input-number', {
   template:`
     <div class="input-number">
-      <input type="text" :value="currentValue" @change="handleChange">
+      <input type="text" :value="currentValue" @change="handleChange" @keyChange="handleKeyChange">
       <button @click="handleReduce" :disabled="currentValue <= min">-</button>
       <button @click="handleIncrease" :disabled="currentValue >= max">+</button>
     </div>
@@ -18,6 +22,10 @@ Vue.component('input-number', {
     value:{
       type:Number,
       default:0
+    },
+    step:{
+      type:Number,
+      default:1
     }
   },
   data:function() {
@@ -36,25 +44,33 @@ Vue.component('input-number', {
   },
   methods: {
     updateValue:function(val){
-      if(val>max){
-        val = max;
+      if(val>this.max){
+        val = this.max;
       }
-      if(val<min){
-        val = min;
+      if(val<this.min){
+        val = this.min;
       }
       this.currentValue = val;
     },
     handleReduce:function(){
       if(this.currentValue<=this.min){
-        return this.min;
+        return;
       }
-      this.currentValue--;
+      this.currentValue -= this.step;
     },
     handleIncrease:function(){
       if(this.currentValue>=this.max){
-        return this.max;
+        return;
       }
-      this.currentValue++;
+      this.currentValue += this.step;
+    },
+    handleKeyChange:function(event){
+      if(event.keyCode==38){
+        this.handleIncrease();
+      }
+      if(event.keyCode==40){
+        this.handleReduce();
+      }
     },
     handleChange:function(event){
       var val = event.target.value.trim();
