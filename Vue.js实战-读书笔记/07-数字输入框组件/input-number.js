@@ -5,7 +5,7 @@ function isValueVumber(value){
 Vue.component('input-number', {
   template:`
     <div class="input-number">
-      <input type="text" :value="currentValue" @change="handleChange" @keyChange="handleKeyChange">
+      <input type="text" :value="currentValue" @change="handleChange" @keydown="handleKeyChange">
       <button @click="handleReduce" :disabled="currentValue <= min">-</button>
       <button @click="handleIncrease" :disabled="currentValue >= max">+</button>
     </div>
