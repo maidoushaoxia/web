@@ -42,20 +42,39 @@ const router = new VueRouter(RouterConfig);
 
 const store = new Vuex.Store({
   state: {
-    count: 0
+    count:0
+    // list: [1,5,8,10,30,50]
+  },
+  getters: {
+    filteredList: state => {
+      return store.state.list.filter(item => item < 10);
+    },
+    listCount: (state,getters) => {
+      return getters.filteredList.length;
+    }
   },
   mutations:{
     // increase(state){
     //   state.count ++;
     // },
-    // increase(state,n=5){
-    //   state.count +=n;
+    // increase(state,params){
+    //   state.count += params.count;
     // },
-    increase(state,params){
-      state.count += params.count;
+    // decrease(state){
+    //   state.count --;
+    // }
+    increase(state,n=5){
+      state.count +=n;
     },
-    decrease(state){
-      state.count --;
+  },
+  actions: {
+    asyncIncrease(context){
+      return new Promise(resolve => {
+        setTimeout(() => {  
+          context.commit('increase');
+          resolve();
+        }, 1000);
+      })
     }
   }
 });
