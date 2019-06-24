@@ -1,0 +1,41 @@
+form{
+  width: 100%;
+  font-size: 14px;
+  color: #333333;
+}
+label{
+  width: 57px;
+  display: inline-block;
+  text-align: right;
+}
+input,select{
+  width: 240px;
+  height: 23px;
+  color: #333333;
+  margin: 0px 50px 10px 0px;
+}
+input{
+  box-sizing: border-box;
+}
+.btn{
+  width: 60px;
+  height: 28px;
+  background-color: #4970d8;
+  border-radius: 14px;
+  color: #ffffff;
+  margin-left: 240px;
+}
+table{
+  width: 100%;
+  border-spacing: 0px;
+  text-align: center;
+  margin: 10px;
+}
+th,td {
+  border-bottom: 1px solid #dadfe7;
+  height: 36px;
+}
+th{
+  background-color: #e6e7f0;
+}
+

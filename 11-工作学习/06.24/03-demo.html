@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form action="target.html">
+    <div>
+        <label for="theme">主题</label>
+        <input type="text" name="zt" id="theme"> 
+        查询内容 <select name="csxr" id="search">
+          <option value="nr1">内容1</option>
+          <option value="nr2">内容2</option>
+          <option value="nr3">内容3</option>
+        </select>
+        访问人员 <select name="fwry" id="inviter">
+          <option value="sy">邵芸</option>
+          <option value="xxx">xxx</option>
+          <option value="ddd">ddd</option>
+        </select>
+      </div>
+      <div>
+      访问方式 <select name="fwfs" id="inviteType">
+        <option value="fs1">方式1</option>
+        <option value="fs2">方式2</option>
+        <option value="fs3">方式3</option>
+      </select>
+      <label for="theme">访问时间</label>
+      <input type="text" name="zt" id="theme"> 
+      <button type="button" class="btn" onclick="confirm('确认查询吗')">查 询</button>
+    </div>
+  </form>
+
+  <table>
+      <tr>
+        <th>序号</th>
+        <th>主题</th>
+        <th>查询内容</th>
+        <th>访问人员</th>
+        <th>访问时间</th>
+      </tr>
+      <tbody>
+          <tr>
+              <td>1</td>
+              <td>涉案人员</td>
+              <td>123</td>
+              <td>saa</td>
+              <td>2019-02-18</td>
+          </tr>
+          <tr>
+              <td>2</td>
+              <td>涉案财务</td>
+              <td>231</td>
+              <td>carol</td>
+              <td>2019-02-14</td>
+          </tr>
+          <tr>
+              <td>3</td>
+              <td>强制医疗</td>
+              <td>34</td>
+              <td>ben</td>
+              <td>2019-02-02</td>
+          </tr>
+          <tr>
+              <td>4</td>
+              <td>涉案人员</td>
+              <td>查询内容</td>
+              <td>saa</td>
+              <td>2019-02-18</td>
+          </tr>
+          <tr>
+              <td>5</td>
+              <td>涉案人员</td>
+              <td>查询内容</td>
+              <td>saa</td>
+              <td>2019-02-18</td>
+          </tr>
+          <tr>
+              <td>6</td>
+              <td>涉案人员</td>
+              <td>查询内容</td>
+              <td>saa</td>
+              <td>2019-02-18</td>
+          </tr>
+      </tbody>
+    </table>
+</body>
+</html>
