@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>回文检测</title>
+</head>
+<body>
+  <script src="deque.js"></script>
+  <script>
+  function palindromeChecker(aString) {
+    if(aString === undefined || aString === null || (aString !== null && aString.length == 0)){
+      return false
+    }
+
+    const deque = new Deque()
+    let lowerString = aString.toLowerCase().split(' ').join()
+    let isEqual = true
+    let firstChar,lastChar
+
+    for(let i=0;i<lowerString.length;i++){
+      deque.addBack(lowerString[i])
+    }
+
+    while(deque.size() > 1 && isEqual == true) {
+      firstChar = deque.removeFront()
+      lastChar = deque.removeBack()
+      if(firstChar !== lastChar){
+        isEqual = false
+      }
+    }
+    return isEqual
+  }
+
+  console.log(palindromeChecker('a'))
+  console.log(palindromeChecker('kayak'))
+  console.log(palindromeChecker('level'))
+  console.log(palindromeChecker('abc'))
+  </script>
+</body>
+</html>
+
