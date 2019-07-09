@@ -4,31 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>双向链表</title>
+  <title>循环链表</title>
 </head>
 <body>
   <script src="../models/linked-list-model.js"></script>
-  <script src="../models/doubly-linked-list-model.js"></script>
   <script src="../util.js"></script>
   <script src="linkedList.js"></script>
-  <script src="doublyLinkedList.js"></script>
+  <script src="circularLinkedList.js"></script>
   <script>
-    const list = new DoublyLinkedList()
+    const list = new CircularLinkedList()
     console.log(list.isEmpty()) // true
-    list.insert(10,1)
+    list.insert(1,0)
+    list.push(10)
     list.push(5)
     console.log(list.getHead()) // element10
-    console.log(list.size()) // 2
-    list.removeAt(1) // 移除5
+    list.insert(2,0)
+    console.log(list.getHead()) // element2
+    console.log(list.size()) // 3
+    list.removeAt(1) // 移除10
     list.push(3)
-    console.log(list.toString()) // 10,3
-    console.log(list.getElementAt(1)) // element3
+    console.log(list.toString()) // 2,5,3
+    console.log(list.getElementAt(1)) // element5
     list.push(6)
     list.push(1)
-    console.log(list.toString()) // 10,3,6,1
-    console.log(list.indexOf(6)) // 2
+    console.log(list.toString()) // 2,5,3,6,1
+    console.log(list.indexOf(6)) // 3
     list.remove(1)
-    console.log(list.toString()) // 10,3,6
+    console.log(list.toString()) // 2,5,3,6
   </script>
 </body>
 </html>
