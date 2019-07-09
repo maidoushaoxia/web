@@ -13,22 +13,45 @@
   <script src="linkedList.js"></script>
   <script src="doublyLinkedList.js"></script>
   <script>
-    const list = new DoublyLinkedList()
-    console.log(list.isEmpty()) // true
-    list.insert(10,1)
-    list.push(5)
-    console.log(list.getHead()) // element10
-    console.log(list.size()) // 2
-    list.removeAt(1) // 移除5
-    list.push(3)
-    console.log(list.toString()) // 10,3
-    console.log(list.getElementAt(1)) // element3
-    list.push(6)
-    list.push(1)
-    console.log(list.toString()) // 10,3,6,1
-    console.log(list.indexOf(6)) // 2
-    list.remove(1)
-    console.log(list.toString()) // 10,3,6
+    let list = new DoublyLinkedList()
+    console.log('push element 15');
+    list.push(15);
+    console.log('list.toString() => ', list.toString());
+
+    console.log('push element 16');
+    list.push(16);
+    console.log('list.toString() => ', list.toString());
+
+    console.log('push element 17');
+    list.push(17);
+    console.log('list.toString() => ', list.toString());
+
+    console.log('insert element 13 pos 0 => ', list.insert(13, 0));
+    console.log('list.toString() => ', list.toString());
+
+    console.log('insert element 18 pos 4 => ', list.insert(18, 4));
+    console.log('list.toString() => ', list.toString());
+
+    console.log('insert element 14 pos 1 => ', list.insert(14, 1));
+    console.log('list.toString() => ', list.toString());
+
+    console.log('list.removeAt(0) => ', list.removeAt(0));
+    console.log('list.toString() => ', list.toString());
+
+    console.log('list.removeAt(list.size() - 1) => ', list.removeAt(list.size() - 1));
+    console.log('list.toString() => ', list.toString());
+
+    console.log('list.removeAt(1) => ', list.removeAt(1));
+    console.log('list.toString() => ', list.toString());
+
+    console.log('remove element 16 => ', list.remove(16));
+    console.log('list.toString() => ', list.toString());
+
+    console.log('remove element 14 => ', list.remove(14));
+    console.log('list.toString() => ', list.toString());
+
+    console.log('remove element 17 => ', list.remove(17));
+    console.log('list.toString() => ', list.toString());
   </script>
 </body>
 </html>

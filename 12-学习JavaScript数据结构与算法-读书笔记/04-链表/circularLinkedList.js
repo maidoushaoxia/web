@@ -31,7 +31,7 @@ class CircularLinkedList extends LinkedList {
   }
 
   // 从任意位置移除元素
-  remove(index) {
+  removeAt(index) {
     if (index >= 0 && index <= this.count) {
       let current = this.head;
       if (index == 0){

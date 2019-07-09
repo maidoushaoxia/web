@@ -7,7 +7,7 @@ class DoublyLinkedList extends LinkedList {
   // 在任意位置插入新元素
   insert(element,index) {
     if(index >= 0 && index < this.count) {
-      const doublyNode = new DoublyNode(element)
+      let node = new DoublyNode(element)
       let current = this.head
       if(index === 0){ //向头部插入成为第一项
         if(this.head == null) { // 空链表
@@ -38,7 +38,7 @@ class DoublyLinkedList extends LinkedList {
   }
 
   //从任意位置移除元素
-  remove(index) {
+  removeAt(index) {
     if(index >= 0 && index < this.count) {
       let current = this.head
       if(index === 0){ // 删除头结点
