@@ -52,3 +52,11 @@
 5. Symbol属性检索
 
   - 用Symbol.getOwnProperty-Symbols()方法来检索对象中的Symbol属性，其返回值是一个包含所有Symbol自有属性的数组。
+
+6. 通过well-known Symbol暴露内部操作
+
+  - Symbol.hasInstance方法：用于确定对象是否为函数的实例。
+
+  - Symbol.isConcatSpreadable属性：是一个布尔值。如果值为true，则表示对象有length属性和数字键，将数值型属性值（如对象中属性为数字的值）独立添加到concat()调用的结果中。
+
+  - 。。。
