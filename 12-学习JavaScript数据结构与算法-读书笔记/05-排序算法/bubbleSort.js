@@ -1,5 +1,12 @@
+/*
+ * @Author: shaoyun
+ * @Date: 2019-08-14 19:35:16
+ * @LastEditors: shaoyun
+ * @LastEditTime: 2019-08-14 19:35:16
+ * @Description: 
+ */
 /**
- * @description: 冒泡排序算法，比较所有相邻项，如果第一个比第二个大，则交换位置
+ * @description: 冒泡排序算法，比较所有相邻项，如果第一个比第二个大，则交换位置。复杂度为O(n^2)
  * @param {arr} {要排序的数组} 
  * @return: 排序后的数组
  */

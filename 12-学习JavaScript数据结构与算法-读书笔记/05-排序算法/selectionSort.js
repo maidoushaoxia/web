@@ -2,11 +2,11 @@
  * @Author: shaoyun
  * @Date: 2019-08-14 21:09:31
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-08-14 21:29:43
+ * @LastEditTime: 2019-08-15 22:03:40
  * @Description: 
  */
 /**
- * @description: 选择排序的算法，找到数组中最小的值并放在第一位，以此类推
+ * @description: 选择排序的算法，找到数组中最小的值并放在第一位，以此类推。复杂度为O(n^2)
  * @param {arr[]} 
  * @return: 排序后的数组
  */
