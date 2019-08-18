@@ -2,9 +2,12 @@
  * @Author: shaoyun
  * @Date: 2019-08-17 20:36:27
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-08-18 12:37:19
+ * @LastEditTime: 2019-08-18 13:51:20
  * @Description: 桶排序的算法
  * 首先找出数组的最小值和最大值，并计算桶的数量
+ * 然后将数组中的元素放到各个桶中
+ * 再分别对每个桶进行排序
+ * 最后把排好序的桶中的元素依次放到空数组中，这个数组就是排序完成的数组
  */
 /**
  * @description: 复杂度为O(n+k)
@@ -13,7 +16,6 @@
  * @return: 
  */
 function bucketSort (arr, bucketSize) {
-  debugger
   // 找到最小值和最大值
   let minValue = arr[0]
   let maxValue = arr[0]
