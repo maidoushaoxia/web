@@ -9,7 +9,7 @@
  * 缩小步长（再次除以2），重复以上操作
  */
 /**
- * @description: 复杂度为O(nlog(n))
+ * @description: 复杂度为O(nlog^2(n))
  * @param {arr[]} 
  * @return: 
  */
