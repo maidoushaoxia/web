@@ -2,7 +2,7 @@
  * @Author: shaoyun
  * @Date: 2019-08-17 20:36:27
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-08-18 13:51:20
+ * @LastEditTime: 2019-08-21 21:50:16
  * @Description: 桶排序的算法
  * 首先找出数组的最小值和最大值，并计算桶的数量
  * 然后将数组中的元素放到各个桶中
@@ -71,7 +71,7 @@ function insertSort (arr) {
   for (let i = 1;i < arr.length;i++) {
     let j = i
     while (j > 0 && arr[j-1] > arr[j]) {
-      [arr[j-1],arr[j]] = [arr[j],arr[j-1]]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+      [arr[j-1],arr[j]] = [arr[j],arr[j-1]]
       j--
     }
   }
