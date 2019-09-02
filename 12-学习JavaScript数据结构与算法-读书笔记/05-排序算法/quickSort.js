@@ -2,7 +2,7 @@
  * @Author: shaoyun
  * @Date: 2019-08-17 10:58:11
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-09-01 19:10:44
+ * @LastEditTime: 2019-09-02 20:38:57
  * @Description: 快速排序的算法
  * 从数组中选择一个基准，创建左指针和右指针。
  * 移动左指针，直到找到一个比基准大的；然后移动右指针，直到找到一个比基准小的；然后交换他们，并移动左右指针，直到左指针超过了右指针，则停止执行，返回左指针的索引。
@@ -20,7 +20,7 @@ function quickSort(arr, left, right) {
     // index为划分函数所返回的左指针的索引
     let index = partition(arr, left, right)
     // 若子数组存在较小值，则递归
-    if (left < index) {
+    if (left < index - 1) {
       quickSort(arr, left, index - 1)
     }
     // 若子数组存在较大值，则递归
@@ -36,9 +36,9 @@ function quickSort(arr, left, right) {
  * @param {type} 
  * @return: 
  */
-function partiton(arr, left, right) {
+function partition(arr, left, right) {
   // 选取一个基准
-  const pivot = arr[parseInt((left + right) / 2)]
+  const pivot = arr[Math.floor((left + right) / 2)]
   let i = left
   let j = right
   // 两个指针没有相遇，则进行划分操作
@@ -54,6 +54,8 @@ function partiton(arr, left, right) {
     // 如果最终左指针没有超过右指针（即左边元素大），则交换两个元素
     if (i <= j) {
       [arr[i], arr[j]] = [arr[j], arr[i]]
+      i++
+      j--
     }
   }
   // 返回左指针的索引，用于下一次划分子数组
