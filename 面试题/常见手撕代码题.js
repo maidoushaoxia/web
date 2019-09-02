@@ -2,7 +2,7 @@
  * @Author: shaoyun
  * @Date: 2019-09-01 16:10:36
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-09-01 19:10:08
+ * @LastEditTime: 2019-09-02 14:57:38
  * @Description: 常见手撕代码题
  */
 /**
@@ -101,4 +101,23 @@ function uniqueArr(arr) {
     }
   }
   return res
+}
+
+/**
+ * @description: 实现深拷贝
+ * @param {Object} obj
+ * @return {Object}
+ */
+function deepClone (obj) {
+  let cloneObj = obj instanceof Array ? [] : {}
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (obj && typeof obj[key] === 'object') {
+        cloneObj[key] = deepClone(obj[key])
+      } else {
+        cloneObj[key] = obj[key]
+      }
+    }
+  }
+  return cloneObj
 }
