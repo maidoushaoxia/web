@@ -2,7 +2,7 @@
  * @Author: shaoyun
  * @Date: 2019-09-01 16:10:36
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-09-02 14:57:38
+ * @LastEditTime: 2019-09-03 20:09:45
  * @Description: 常见手撕代码题
  */
 /**
@@ -104,6 +104,18 @@ function uniqueArr(arr) {
 }
 
 /**
+ * @description: 数组去重ES6简单版
+ * @param {Array}  
+ * @return {Array}  
+ */
+function uniqueArr(arr) {
+  return Array.from(new Set(arr))
+
+  // 或者用...展开符
+  // return [...new Set(arr)]
+}
+
+/**
  * @description: 实现深拷贝
  * @param {Object} obj
  * @return {Object}
@@ -120,4 +132,84 @@ function deepClone (obj) {
     }
   }
   return cloneObj
+}
+
+/**
+ * @description: 防抖函数——非立即执行版
+ * @param
+ * @return
+ */
+function debounce (fn, time) {
+  let timeout = null
+  return function () {
+    let context = this
+    let args = arguments
+    if (timeout) {
+      clearTimeout(timeout)
+    }
+    timeout = setTimeout(() => {
+      fn.apply(context, args)
+    }, time)
+  }
+}
+
+/**
+ * @description: 防抖函数——立即执行版
+ * @param
+ * @return
+ */
+function debounce(fn, time) {
+  let timeout = null
+  return function () {
+    let context = this
+    let args =arguments
+
+    if (timeout) {
+      clearTimeout(timeout)
+    }
+
+    let callNow = !timeout
+    timeout = setTimeout(() => {
+      timeout = null
+    }, time)
+    if (callNow) {
+      fn.apply(context, args)
+    }
+  }
+}
+
+/**
+ * @description: 节流函数——时间戳版
+ * @param 
+ * @return
+ */
+function throttle (fn, time) {
+  let previous = 0
+  return function () {
+    let context = this
+    let args = arguments
+    if (Date.now() - previous > time) {
+      fn.apply(context, args)
+      previous = Date.now()
+    }
+  }
+}
+
+/**
+ * @description: 节流函数——定时器版
+ * @param
+ * @return
+ */
+function throttle (fn, time) {
+  let timeout = null
+  return function () {
+    let context = this
+    let args = arguments
+    if (!timeout) {
+      timeout = setTimeout(() => {
+        fn.apply(context, args)
+        timeout = null
+      }, time)
+    }
+  }
 }
