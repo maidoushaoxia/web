@@ -2,7 +2,7 @@
  * @Author: shaoyun
  * @Date: 2019-09-01 16:10:36
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-09-09 21:13:06
+ * @LastEditTime: 2019-09-11 20:03:52
  * @Description: 常见手撕代码题
  */
 /**
@@ -451,6 +451,8 @@ function postOrderTraverse (node) {
 }
 
 // 后序遍历——非递归版
+function preOrderTraverseUnRecursion (root) {
+}
 
 /**
  * @description: 美团面试：取出node节点
@@ -489,3 +491,33 @@ function fn(obj) {
   return arr.sort((a,b) => (a - b))
 }
 console.log(fn(obj))
+
+/**
+ * @description: 实现大数相加
+ * @param {type} 
+ * @return: 
+ */
+
+
+ /**
+  * @description: 实现map数据结构
+  * @param
+  * @return {Object}
+  */ 
+function myMap () {
+  var obj = {}
+
+  // put方法存值
+  this.put = function(key, value) {
+    obj[key] = value
+  }
+
+  // get方法取值
+  this.get = function (key) {
+    if (obj[key] || obj[key] === 0 || obj[key] === false) {
+      return obj[key]
+    } else {
+      return null
+    }
+  }
+}
