@@ -2,7 +2,7 @@
  * @Author: shaoyun
  * @Date: 2019-09-01 16:10:36
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-09-11 20:03:52
+ * @LastEditTime: 2019-09-12 19:23:13
  * @Description: 常见手撕代码题
  */
 /**
@@ -498,7 +498,6 @@ console.log(fn(obj))
  * @return: 
  */
 
-
  /**
   * @description: 实现map数据结构
   * @param
@@ -520,4 +519,13 @@ function myMap () {
       return null
     }
   }
+}
+
+/**
+ * @description: 对象数组的排序方法
+ * @param {String} key 
+ * @return {Array}
+ */
+function sortArr (key) {
+  return (a, b) => (a[key] - b[key])
 }
