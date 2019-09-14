@@ -2,7 +2,7 @@
  * @Author: shaoyun
  * @Date: 2019-08-21 20:39:13
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-08-21 21:28:54
+ * @LastEditTime: 2019-09-14 14:39:08
  * @Description: 二分查找的算法
  */
 /**
@@ -15,7 +15,7 @@ function binarySearch(arr, target) {
   let high = arr.length - 1
   // 一般不给用api，需要写排序算法
   arr.sort()
-  while (low < high) {
+  while (low <= high) {
     let mid = Math.floor((low + high) / 2)
     if (arr[mid] === target) {
       return mid
@@ -25,6 +25,29 @@ function binarySearch(arr, target) {
     } else if (arr[mid] > target) {
       high = mid - 1
     }
+  }
+  return -1
+}
+
+/**
+ * @description: 二分查找模板
+ * @param {Array} arr
+ * @param {Number} target
+ * @return {Array}
+ */
+function binaryserach (arr, target) {
+  let low = 0
+  let high = arr.length - 1
+  while (low < high) {
+    let mid = low + Math.floor((high - low) / 2)
+    if (arr[mid] < target) {
+      low = mid + 1
+    } else {
+      high = mid
+    }
+  }
+  if (arr[low] === target) {
+    return low
   }
   return -1
 }
