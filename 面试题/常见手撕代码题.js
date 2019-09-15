@@ -2,7 +2,7 @@
  * @Author: shaoyun
  * @Date: 2019-09-01 16:10:36
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-09-12 19:23:13
+ * @LastEditTime: 2019-09-15 19:09:24
  * @Description: 常见手撕代码题
  */
 /**
@@ -50,7 +50,7 @@ function toLine(str) {
 function maxChar(str) {
   let obj = {}
   for (let i = 0;i <str.length;i++) {
-    let char = str.charAt(i)
+    let char = str[i]
     if (obj[char]) {
       obj[char] ++
     } else {
@@ -113,6 +113,9 @@ function uniqueArr(arr) {
 
   // 或者用...展开符
   // return [...new Set(arr)]
+
+  // NaN会被去重，而{}会认为是不一样的
+  // arr = [NaN, 1, 3, 4, 1, 3, 2, NaN, {},{}] => [NaN, 1, 3, 4, 2, {}, {}]
 }
 
 /**
@@ -329,6 +332,56 @@ async function fn() {
 }
 
 /**
+ * @description: 使用Promise，实现每隔一秒输出0,1,2,3,4，最后输出5
+ * @param {type} 
+ * @return: 
+ */
+var task = []
+var output = function (i) {
+  return new Promise((resolve => {
+    setTimeout(() => {
+      console.log(i)
+      resolve()
+    }, 1000 * i)
+  }))
+}
+
+// 生成全部的异步操作
+for(var i = 0;i < 5;i++) {
+  task.push(output(i))
+}
+
+// 输出最后的i
+Promise.all(task).then(() => {
+  setTimeout(() => {
+    console.log(i)
+  },1000)
+})
+
+/**
+ * @description: 使用async和await实现每隔一秒输出0,1,2,3,4，最后输出5
+ * @param {type} 
+ * @return: 
+ */
+var sleep = function (time) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, time)
+  })
+}
+
+async function timeout () {
+  // 输出0，1，2，3，4
+  for (var i = 0;i < 5;i++) {
+    await sleep(1000)
+    console.log(i)
+  }
+
+  await sleep(1000)
+  console.log(i) // 最后输出5
+}
+timeout()
+
+/**
  * @description: 实现new操作符
  * @param
  * @return
@@ -353,12 +406,9 @@ function myNew() {
   let resObj = constructor.apply(obj, arguments)
 
   // 返回对象
-  if (typeof resObj === 'object') {
-    return resObj
-  }
-  return obj
-  
+  return typeof resObj === 'object' ? resObj : obj
 }
+myNew(Fn) // Fn是构造函数
 
 /**
  * @description: 二叉树遍历
