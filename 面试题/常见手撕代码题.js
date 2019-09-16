@@ -2,7 +2,7 @@
  * @Author: shaoyun
  * @Date: 2019-09-01 16:10:36
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-09-16 11:33:29
+ * @LastEditTime: 2019-09-16 19:45:06
  * @Description: 常见手撕代码题
  */
 /**
@@ -273,9 +273,9 @@ Function.prototype.myBind2 = function (context) {
     arg = arg.concat(Array.prototype.slice.call(arguments))
     return _self.apply(this instanceof fn ? this : context, arg)
   }
-  function Trans(){}
-  Trans.prototype = _self.prototype
-  fn.prototype = new Trans()
+  function Fn(){}
+  Fn.prototype = _self.prototype
+  fn.prototype = new Fn()
   return fn
 }
 
@@ -500,6 +500,27 @@ function postOrderTraverse (node) {
 
 // 后序遍历——非递归版
 function preOrderTraverseUnRecursion (root) {
+  var list = []
+  if(root !== null){
+    var s1 = []
+    var s2 = []
+    s1.push(root)
+    while(s1.length !== 0){
+      head = s1.pop()
+      s2.push(head)
+      if(head.left !== null){
+        s1.push(head.left)
+      }
+      if(head.right !== null){
+        s1.push(head.right)
+      }
+    }
+    while(s2.length !== 0){
+      var item = s2.pop()
+      list.push(item.val)
+    }
+  }
+  return list
 }
 
 /**
@@ -542,9 +563,31 @@ console.log(fn(obj))
 
 /**
  * @description: 实现大数相加
- * @param {type} 
- * @return: 
+ * @param {Number} a 
+ * @param {Number} b 
+ * @return {String}
  */
+function sumBigNunmber(a, b) {
+  a = a + ''
+  b = b + ''
+  // 位数小的补0
+  while (a.length < b.length) {
+    a = '0' + a
+  }
+  while (b.length < a.length) {
+    b = '0' + b
+  }
+  let res = []
+  a = a.split('').reverse()
+  b = b.split('').reverse()
+  let carry = 0 // 进位
+  for (let i = 0;i < a.length;i++) {
+    temp = Number(a[i]) + Number(b[i]) + carry
+    res[i] = temp % 10 // 当前位相加的结果
+    carry = parseInt(temp / 10) // 相加后的进位
+  }
+  return res.reverse().join('')
+}
 
  /**
   * @description: 实现map数据结构
