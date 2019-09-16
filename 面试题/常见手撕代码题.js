@@ -2,7 +2,7 @@
  * @Author: shaoyun
  * @Date: 2019-09-01 16:10:36
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-09-16 09:39:32
+ * @LastEditTime: 2019-09-16 11:33:29
  * @Description: 常见手撕代码题
  */
 /**
@@ -579,3 +579,16 @@ function sortArr (key) {
 }
 var arr = [{name:'sy', age: 18}, {name:'mdsx', age: 22}]
 arr.sort(sortArr('age'))
+
+/**
+ * @description: 函数柯里化的封装
+ * @param {Function} fn 
+ * @return
+ */
+function Curry (fn) {
+  var args = Array.prototype.slice.call(arguments)
+  return function () {
+    var _args = args.concat(Array.prototype.slice.call(arguments))
+    return fn.apply(this, _args)
+  }
+}
