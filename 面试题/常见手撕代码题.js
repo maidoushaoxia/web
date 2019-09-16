@@ -2,7 +2,7 @@
  * @Author: shaoyun
  * @Date: 2019-09-01 16:10:36
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-09-15 19:09:24
+ * @LastEditTime: 2019-09-16 09:39:32
  * @Description: 常见手撕代码题
  */
 /**
@@ -474,10 +474,8 @@ function inOrderTraverse (node) {
 }
 
 // 中序遍历——非递归版
-function inOrderTraverseUnRecursion (root) {
+function inOrderTraverseUnRecursion (node) {
   let arr = []
-  let node = root
-
   while (arr.length !== 0 || node !== null) {
     if (node === null) {
       node = arr.shift()
@@ -533,7 +531,7 @@ function fn(obj) {
     if (obj && obj.hasOwnProperty(key)) {
       if (obj[key] instanceof Object) {
           obj[key] = fn(obj[key])
-      } else if (obj['node']){
+      } else {
           arr.push(obj['node'])   
       }
     }
@@ -579,3 +577,5 @@ function myMap () {
 function sortArr (key) {
   return (a, b) => (a[key] - b[key])
 }
+var arr = [{name:'sy', age: 18}, {name:'mdsx', age: 22}]
+arr.sort(sortArr('age'))
