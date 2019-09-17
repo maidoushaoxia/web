@@ -2,7 +2,7 @@
  * @Author: shaoyun
  * @Date: 2019-09-16 20:46:26
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-09-16 20:46:29
+ * @LastEditTime: 2019-09-17 09:18:46
  * @Description: 人浪
  */
 function wave(w){
@@ -17,6 +17,6 @@ function wave(w){
  return res;
 }
 while(line = readline()){
-  var w = lines;
+  var w = line;
   print(JSON.stringify(wave(w)));
 }
