@@ -2,7 +2,7 @@
  * @Author: shaoyun
  * @Date: 2019-09-23 19:29:03
  * @LastEditors: shaoyun
- * @LastEditTime: 2019-09-23 20:03:44
+ * @LastEditTime: 2019-09-23 20:52:00
  * @Description: java多线程打印
  */
 package com.test.concurrent.alternatingprint;
@@ -11,23 +11,22 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 
-public class PrintNumber extends Thread {
+public class Main extends Thread {
     /**
      * 多个线程共享这一个sequence数据
      */
-    private static int sequence=0;
+    private static int sequence = 0;
 
-    private static final int SEQUENCE_END =75;
+    private static final int SEQUENCE_END = 15;
 
     private Integer id;
     private ReentrantLock lock;
     private Condition[] conditions;
 
 
-
-    private PrintNumber(Integer id,  ReentrantLock lock, Condition[] conditions) {
+    private Main(Integer id, ReentrantLock lock, Condition[] conditions) {
         this.id = id;
-        this.setName("thread" + id);
+        this.setName("thread" + (id + 1));
         this.lock = lock;
         this.conditions = conditions;
     }
@@ -42,9 +41,12 @@ public class PrintNumber extends Thread {
                     conditions[(id + 1) % conditions.length].signal();
                     conditions[id].await();
                 }
-                System.out.println(Thread.currentThread().getName() + " " + sequence);
                 //序号加1
                 sequence = sequence + 1;
+                for (int j = 1; j <= 5; j++) {
+                    System.out.println(Thread.currentThread().getName() + ":" + ((sequence - 1) * 5 + j));
+                }
+
                 //唤醒当前线程的下一个线程
                 conditions[(id + 1) % conditions.length].signal();
                 //当前线程进入等待状态
@@ -74,14 +76,13 @@ public class PrintNumber extends Thread {
         for (int i = 0; i < threadCount; i++) {
             conditions[i] = lock.newCondition();
         }
-        PrintNumber[] printNumbers = new PrintNumber[threadCount];
+        Main[] printNumbers = new Main[threadCount];
         for (int i = 0; i < threadCount; i++) {
-            PrintNumber p = new PrintNumber(i, lock, conditions);
+            Main p = new Main(i, lock, conditions);
             printNumbers[i] = p;
         }
-        for (PrintNumber printNumber : printNumbers) {
+        for (Main printNumber : printNumbers) {
             printNumber.start();
         }
     }
-
 }
