@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>实现分栏等高布局</title>
+    <style>
+        .column-left, .column-right {
+            width: 50%;
+            float: left;
+            /* 后面所有元素和上面元素的空间距离变为-9999px */
+            margin-bottom: -9999px;
+            /* 利用内边距增加元素高度，正负抵消 */
+            padding-bottom: 9999px;
+        }
+        .column-box {
+            /* 把多出来的色块背景隐藏 */
+            overflow: hidden;
+            width: 600px;
+        }
+        .column-left {
+            background-color: red;
+        }
+        .column-right {
+            background-color: yellow;
+        }
+        /* border方法 */
+        .box {
+            /* 只需要设定右边那一栏的宽度 */
+            width: 400px;
+            /* 用border生成导航区的背景颜色，需要左边一栏定宽 */
+            border-left: 200px #333 solid;
+            background-color: #f0f3f9;
+        }
+        /* 清除浮动，不能用overflow: hidden */
+        .box::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .box > nav{
+            width: 200px;
+            float: left;
+            margin-left: -200px;
+            text-align: center;
+        }
+        .box > section {
+            width: 400px;
+            text-align: center;
+        }
+        .nav {
+            margin: 0;
+            line-height: 40px;
+            color: #fff;
+        }
+        .module {
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="column-box">
+        <div class="column-left">
+            <h4>正方观点</h4>
+            <p>观点1</p>
+            <p>观点2</p>
+            <p>观点3</p>
+            <p>观点4</p>
+        </div>
+        <div class="column-right">
+            <h4>反方观点</h4>
+            <p>观点1</p>
+        </div>
+    </div>
+    <!-- border方法 -->
+    <div class="box">
+        <nav>
+          <h3 class="nav">导航1</h3>
+          <h3 class="nav">导航2</h3>
+          <h3 class="nav">导航3</h3>
+          <h3 class="nav">导航4</h3>
+        </nav>
+        <section>
+          <div class="module">模块1</div>
+          <div class="module">模块2</div>
+        </section>
+      </div>
+</body>
+</html>
