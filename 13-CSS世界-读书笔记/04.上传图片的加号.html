@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>上传图片的加号</title>
+    <style>
+    .add {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        border: 2px dashed #ccc;
+        position: relative;
+        overflow: hidden;
+        color: #ccc;
+    }
+    .add::before {
+        width: 40px;
+        border-top: 4px solid;
+        /* shi */
+        margin-left: -20px;
+        margin-top: -1px;
+    }
+    .add::after {
+        height: 40px;
+        border-left: 4px solid;
+        margin-top: -20px;
+        margin-left: -1px;
+    }
+    .add::before, .add::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: #ccc;
+    }
+    .add:hover {
+        color: #06c;
+    }
+    </style>
+</head>
+<body>
+    <a href="javascript" class="add" title="继续上传"></a>
+</body>
+</html>
