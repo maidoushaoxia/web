@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>删除图标对齐处理</title>
+    <style>
+    .box {
+        line-height: 20px;
+    }
+    .icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        white-space: nowrap; 
+        letter-spacing: -1em; 
+        text-indent: -999em;
+    }
+    .icon::before {
+        content: '\3000';
+    }
+    .icon-delete {
+        background: url(icon-delete.png) no-repeat center;
+        background-size: 20px 20px;
+    }
+    .large {
+        font-size: 30px;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p><i class="icon icon-delete"></i>删除</p>
+        <p><i class="icon icon-delete">删除</i>标签里有“删除”两个字</p>
+        <p class="large">
+            <i class="icon icon-delete"></i>删除
+        </p>
+    </div>
+</body>
+</html>
