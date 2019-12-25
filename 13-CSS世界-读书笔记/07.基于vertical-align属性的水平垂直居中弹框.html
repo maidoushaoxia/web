@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>弹框水平居中</title>
+    <style>
+        .container {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+            /* 字体为0，则字符x中心线的位置就在容器的上边缘 */
+            font-size: 0;
+            z-index: 99px;
+            /* 水平居中 */
+            text-align: center;
+        }
+        .container::after {
+            content: '';
+            display: inline-block;
+            /* 高度为100%的伪元素本应该和x的中心点对齐，于是一起向下移动半个容器的高度，此时字符x的中心点就在容器的垂直线上 */
+            height: 100%;
+            vertical-align: middle;
+        }
+        .dialog {
+            display: inline-block;
+            border-radius: 6px;
+            background-color: #fff;
+            /* 弹窗也和字符x的中心点对齐，因此与容器垂直中心对齐 */
+            vertical-align: middle;
+            padding: 20px;
+            font-size: 14px;
+            text-align: left;
+        }
+        .content {
+            width: 350px;
+            height: 200px;
+            /* display: block; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dialog">
+            <div class="content">内容区域内容区域内容区域内容区域内容区域内容区域内容区域内容区域</div>
+        </div>
+    </div>
+</body>
+</html>
