@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>锚点定位</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+            border: 1px solid #ddd;
+            overflow: hidden;
+            margin: auto;
+        }
+        .list {
+            height: 100%;
+            background: #ddd;
+            text-align: center;
+            position: relative;
+            font-size: 40px;
+            /* margin: auto; */
+        }
+        .list > input {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            /* 剪裁可见尺寸 */
+            clip: rect(0 0 0 0);
+        }
+        .link {
+            width: 150px;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .click {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+        }
+        .bg-orange {
+            background-color: orange;
+        }
+        .bg-blue {
+            background-color: blue;
+        }
+        .bg-red {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="list">
+            <input id="one">1
+        </div>
+        <div class="list bg-orange">
+            <input id="two">2
+        </div>
+        <div class="list bg-blue">
+            <input id="three">3
+        </div>
+        <div class="list bg-red">
+            <input id="four">4
+        </div>
+    </div>
+
+    <div class="link">
+        <label for="one" class="click">1</label>
+        <label for="two" class="click">2</label>
+        <label for="three" class="click">3</label>
+        <label for="four" class="click">4</label>
+    </div>
+</body>
+</html>
