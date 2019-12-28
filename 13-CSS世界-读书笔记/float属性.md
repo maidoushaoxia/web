@@ -54,7 +54,38 @@
    body {
      with: 100vm;
      overflow: hidden;
+   ```
+
+7. 单行文字溢出打点效果
+
+   ```css
+   .ell {
+     text-overflow: ellipsis;
+   	// 文本不换行  
+     white-space: nowrap;
+     overflow: hidden;
    }
    ```
 
-   
+8. 锚点定位：
+
+   - URL地址锚链定位：让元素定位在浏览器上边缘，用a标签的name属性或标签的id属性皆可；如果锚链是#，则默认回到顶部。
+
+     ```htm
+     <a href="#1">发展历程</a> //锚链
+     
+     <a name="1">发展</a>
+     <h2 id="1">发展</h2>
+     ```
+
+     
+
+   - focus锚点定位：让元素在浏览器窗体内显示
+
+### position: absolute
+
+1. 当absolute与float同时存在时，float属性无效果。
+2. absolute的包含块：最近的position不为static的祖先元素或根元素，计算和定位是相对于padding box。
+3. 绝对定位元素默认的最大宽度是“包含块”的宽度，如果”包含块“宽度较小或者剩余可用空间不足时，会出现文字无法显示的问题，此时可以用white-space: nowrap解决。
+4. 由于绝对定位元素是相对于祖先元素的padding box，在定位时祖先元素的padding属性值是多少都不会影响布局；如果需要相对于内容定位，则可以不使用padding，而是用透明的border属性将其撑开，这样需要修改定位时，只要改变border即可。。
+
