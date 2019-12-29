@@ -85,7 +85,62 @@
 ### position: absolute
 
 1. 当absolute与float同时存在时，float属性无效果。
+
 2. absolute的包含块：最近的position不为static的祖先元素或根元素，计算和定位是相对于padding box。
+
 3. 绝对定位元素默认的最大宽度是“包含块”的宽度，如果”包含块“宽度较小或者剩余可用空间不足时，会出现文字无法显示的问题，此时可以用white-space: nowrap解决。
-4. 由于绝对定位元素是相对于祖先元素的padding box，在定位时祖先元素的padding属性值是多少都不会影响布局；如果需要相对于内容定位，则可以不使用padding，而是用透明的border属性将其撑开，这样需要修改定位时，只要改变border即可。。
+
+4. 由于绝对定位元素是相对于祖先元素的padding box，在定位时祖先元素的padding属性值是多少都不会影响布局；如果需要相对于内容定位，则可以不使用padding，而是用透明的border属性将其撑开，这样需要修改定位时，只要改变border即可。
+
+5. absolute无依赖绝对定位：
+
+   - absolute定位并不需要父元素设置position为relative就可以实现，同时不需要设置left/top属性定位。
+
+     ```css
+     .shape {
+       // 这样就可以实现定位在父元素的左上角
+       position: absolute;
+       // 使用margin进行位置偏移
+       margin: -6px 0 0 2px;  
+     }
+     ```
+
+6. absolute与overflow
+
+   - 如果overflow不是定位元素，同时absolute元素和overflow容器之间没有定位元素，则overflow无法对absolute元素进行剪裁；
+   - 如果overflow的属性是scoll或auto，即使absolute元素宽高比overflow元素宽高还大，也不会出现滚动条。
+
+7. clip：可以使用此属性实现可访问性隐藏。
+
+   ```css
+   .clip {
+     position: absolute;
+     // 注意右边和下边的剪裁也是相对于左边缘和上边缘的
+     clip: rect(0 0 0 0);
+   }
+   ```
+
+   使用clip进行剪裁仅仅决定了哪部分是可见的，虽然视觉上隐藏，但尺寸还是原本的尺寸。
+
+8. absolute流体特性：当对立定位方向属性同时具有具体定位数值时，就产生了流体特性，因此可以配合margin: auto实现水平垂直居中。
+
+   ```css
+   .element {
+     width: 300px;
+     height: 200px;
+     position: absolute;
+     left: 0;
+     right: 0;
+     top: 0;
+     bottom: 0;
+     margin: auto;
+   }
+   ```
+
+### position: relative
+
+1. 当相对定位元素同时应用对立方向定位值时，只有一个方向的值会生效（默认是左和上）。
+2. 尽量避免使用relative，如果一定要用，务必最小化。
+
+
 
