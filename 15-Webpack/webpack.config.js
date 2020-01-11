@@ -1,14 +1,16 @@
 const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 // const TerserPlugin = require('terser-webpack-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = function (env = {}, argv) {
 	const plugins = [
-		new MiniCssExtractPlugin({
-			// 提取出来的css文件名
-			filename: `[name].[contenthash:8].css`
-		})
+		// new MiniCssExtractPlugin({
+		// 	// 提取出来的css文件名
+		// 	filename: `[name].[contenthash:8].css`
+		// }),
+		new VueLoaderPlugin()
 	]
 
 	const isProduction = env['production']
@@ -36,14 +38,18 @@ module.exports = function (env = {}, argv) {
 				{
 					// 正则匹配.css后缀的文件
 					test: /\.css$/,
-					// use: ['style-loader', 'css-loader']
-					use: [
-						MiniCssExtractPlugin.loader, 'css-loader'
-					]
+					use: ['style-loader', 'css-loader']
+					// use: [
+					// 	MiniCssExtractPlugin.loader, 'css-loader'
+					// ]
 				},
 				{
 					test: /\.(png|svg|jpg|gif)$/,
 					use: ['file-loader']
+				},
+				{
+					test: /\.vue$/,
+					use: ['vue-loader']
 				}
 			]
 		},
