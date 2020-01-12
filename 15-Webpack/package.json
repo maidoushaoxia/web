@@ -1,13 +1,12 @@
 {
   "name": "15-webpack",
+  "sideEffects": false,
   "version": "1.0.0",
   "description": "webpack学习",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --env.dev",
-    "production": "webpack --env.production",
-    "serve": "webpack-dev-server --hot --devtool source-map"
+    "serve": "webpack-dev-server --hot --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "author": "shaoyun",
   "license": "ISC",
@@ -15,6 +14,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
@@ -27,7 +27,8 @@
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "vue": "^2.6.11"
