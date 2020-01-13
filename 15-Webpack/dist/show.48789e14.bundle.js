@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{5:function(n,e,t){"use strict";function o(n){window.document.getElementById("app").innerText="hello,"+n}t.r(e),t.d(e,"default",(function(){return o}))}}]);

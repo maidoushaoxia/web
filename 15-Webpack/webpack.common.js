@@ -6,17 +6,30 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: {
-        app: './src/main.js'
+        index: './src/main.js',
+        another: './src/another-module.js'
     },
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html'
-        })
+        }),
     ],
     output: {
         // name就是上面的app
-        filename: '[name].bundle.js',
+        filename: '[name].[contenthash:8].bundle.js',
+        chunkFilename: '[name].[contenthash:8].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-    }
+    },
+    // optimization: {
+    //     splitChunks: {
+    //         cacheGroups: {
+    //             vendor: {
+    //                 name: 'common',
+    //                 chunks: 'all',
+    //                 minSize: 1, // 生成块的最小大小
+    //             }
+    //         }
+    //     }
+    // }
 }

@@ -1,17 +1,25 @@
 // 导入show函数
-const show = require('./show.js')
+// const show = require('./show.js')
 // 导入CSS文件
 // require('./main.css')
 
 import { cube } from './math'
 
 const value = cube(5)
+// const _ = require('lodash')
 
-show('webpack ' + value)
+// console.log(_.join(['main ', 'module ', 'loaded'], ''))
+
+// show('webpack ' + value)
+
+import(/* webpackChunkName: "show" */'./show').then(show => { // 注释是指定bundle的命名
+    show.default('webpack ' + value)
+})
 
 if (process.env.NODE_ENV !== 'production') {
     console.log('in development mode')
 }
+
 
 // import Vue from 'vue'
 // import App from './App.vue'
