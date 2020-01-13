@@ -12,9 +12,23 @@ const value = cube(5)
 
 // show('webpack ' + value)
 
-import(/* webpackChunkName: "show" */'./show').then(show => { // 注释是指定bundle的命名
-    show.default('webpack ' + value)
-})
+function component() {
+    var element = document.createElement('div')
+    var button = document.createElement('button')
+    button.onclick = e => import(/* webpackChunkName: "show" */'./show').then(show => { // 注释是指定bundle的命名
+        show.default('webpack ' + value)
+    })
+
+    element.appendChild(button)
+
+    return element
+}
+
+document.body.appendChild(component())
+
+// import(/* webpackChunkName: "show" */'./show').then(show => { // 注释是指定bundle的命名
+//     show.default('webpack ' + value)
+// })
 
 if (process.env.NODE_ENV !== 'production') {
     console.log('in development mode')
