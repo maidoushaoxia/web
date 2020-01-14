@@ -44,3 +44,14 @@ if (process.env.NODE_ENV !== 'production') {
 //     // 这是Vue.js里的createElement函数，作用是生成一个VNode节点，
 //     // render函数得到这个VNode节点之后，返回个Vue.js的mount函数，渲染成真实DOM节点，并挂在根节点上。
 // })
+
+// 注册Service Worker
+if('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js').then((registration) => {
+            console.log('SW registered: ', registration)
+        }).catch(registrationError => {
+            console.log('SW registration failed: ', registrationError)
+        })
+    })
+}

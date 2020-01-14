@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 // HTMLWebpackPlugin可以生成html模板并且自动添加script
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 
 module.exports = {
     entry: {
@@ -17,6 +18,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),
+        new WorkboxWebpackPlugin.GenerateSW({
+            clientsClaim: true, // 不允许遗留任何“旧的”ServiceWorkers
+            skipWaiting: true // 快速启动ServiceWorkers
+        })
     ],
     output: {
         // name就是上面的index
