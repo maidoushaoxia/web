@@ -3,33 +3,39 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 // HTMLWebpackPlugin可以生成html模板并且自动添加script
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack')
 
 module.exports = {
     entry: {
         index: './src/main.js',
-        another: './src/another-module.js'
+        another: './src/another-module.js',
+        vendor: ['lodash']
     },
     plugins: [
+        new webpack.HashedModuleIdsPlugin(),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),
     ],
     output: {
-        // name就是上面的app
+        // name就是上面的index
         filename: '[name].[contenthash:8].bundle.js',
-        chunkFilename: '[name].[contenthash:8].bundle.js',
+        chunkFilename: '[name].[chunkhash].bundle.js', // 决定非入口chunk的名称
         path: path.resolve(__dirname, 'dist'),
     },
-    // optimization: {
-    //     splitChunks: {
-    //         cacheGroups: {
-    //             vendor: {
-    //                 name: 'common',
-    //                 chunks: 'all',
-    //                 minSize: 1, // 生成块的最小大小
-    //             }
-    //         }
-    //     }
-    // }
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    name: 'vendor',
+                },
+                vendor: {
+                    name: 'common',
+                    chunks: 'all',
+                    minSize: 1, // 生成块的最小大小
+                },
+            }
+        }
+    }
 }

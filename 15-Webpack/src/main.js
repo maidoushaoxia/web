@@ -1,5 +1,5 @@
 // 导入show函数
-// const show = require('./show.js')
+const show = require('./show.js')
 // 导入CSS文件
 // require('./main.css')
 
@@ -10,21 +10,21 @@ const value = cube(5)
 
 // console.log(_.join(['main ', 'module ', 'loaded'], ''))
 
-// show('webpack ' + value)
+show('webpack ' + value)
 
-function component() {
-    var element = document.createElement('div')
-    var button = document.createElement('button')
-    button.onclick = e => import(/* webpackChunkName: "show" */'./show').then(show => { // 注释是指定bundle的命名
-        show.default('webpack ' + value)
-    })
+// function component() {
+//     var element = document.createElement('div')
+//     var button = document.createElement('button')
+//     button.onclick = e => import(/* webpackChunkName: "show" */'./show').then(show => { // 注释是指定bundle的命名
+//         show.default('webpack ' + value)
+//     })
 
-    element.appendChild(button)
+//     element.appendChild(button)
 
-    return element
-}
+//     return element
+// }
 
-document.body.appendChild(component())
+// document.body.appendChild(component())
 
 // import(/* webpackChunkName: "show" */'./show').then(show => { // 注释是指定bundle的命名
 //     show.default('webpack ' + value)
