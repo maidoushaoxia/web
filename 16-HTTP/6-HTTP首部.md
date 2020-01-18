@@ -233,3 +233,19 @@
 #### 10. Last-Modified
 
 - 指明资源最终修改的时间
+
+### 6.7 Cookie相关的首部字段
+
+#### 1. Set-Cookie：响应首部字段
+
+- name：Cookie的名称和值
+- expires：指定浏览器可发送Cookie的有效期，若不指定，则有效期为Session级别
+- path：指定Cookie的适用对象
+
+- domain：Cookie适用对象的域名
+- secure：限制仅HTTPS协议时，才可以发送 Cookie
+- HttpOnly：使JavaScript无法获得Cookie，为了防止跨站脚本攻击
+
+#### 2. Cookie：请求首部字段
+
+- 客户端想获得HTTP状态管理支持时，就在请求中包含从服务器接收到的Cookie
