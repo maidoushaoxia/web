@@ -268,4 +268,38 @@ ReactDOM.render(
   )
   ```
 
+### 11. 组合
+
+- 用一个特殊的children prop将子组件传递到渲染结果中
+
+- 类似Vue插槽，可以自定义渲染的内容
+
+  ```jsx
+  function SplitPane(props) {
+    return (
+    	<div className="SplitPane">
+      	<div className="SplitPane-left">
+          {props.left}
+        </div>
+        <div className="SplitPane-right">
+          {props.right}
+        </div>
+      </div>
+    )
+  }
   
+  function App() {
+    return (
+    	<SplitPane
+        left={
+          <Contacts />
+       	}
+        right={
+          <Chat />
+       	} />
+    )
+  }
+  ```
+
+  
+
